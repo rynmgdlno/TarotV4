@@ -1,46 +1,39 @@
-
-
-// const initColors = {
-{
-  "id": 0,
-  "colors": [{
-    "red": 0,
-    "green": 105,
-    "blue": 148
-  }]
-},
-  // {
-  //   "id": 1,
-  //     "colors": {
-  //     "red": 0,
-  //       "green": 134,
-  //         "blue": 156
-  //   }
-  // },
-  // {
-  //   "id": 2,
-  //     "colors": {
-  //     "red": 0,
-  //       "green": 171,
-  //         "blue": 171
-  //   }
-  // },
-  // {
-  //   "id": 3,
-  //     "colors": {
-  //     "red": 0,
-  //       "green": 196,
-  //         "blue": 174
-  //   }
-  // },
-  // {
-  //   "id": 4,
-  //     "colors": {
-  //     "red": 0,
-  //       "green": 232,
-  //         "blue": 182
-  //   }
-  // }
-// }
+const initColor = [
+  {
+    id: 0, 
+    hex: 'ff0000',
+    red: 255,
+    green: 0,
+    blue: 0
+  }, 
+  {
+    id: 1,
+    hex: 'ff7d00',
+    red: 255,
+    green: 125,
+    blue: 0
+  }, 
+  {
+    id: 2,
+    hex: 'ffff00',
+    red: 255,
+    green: 255,
+    blue: 0
+  }, 
+  {
+    id: 3,
+    hex: '00ff00',
+    red: 0,
+    green: 255,
+    blue: 0
+  }, 
+  {
+    id: 4,
+    hex: '0000FF',
+    red: 0,
+    green: 0,
+    blue: 255
+  }
+]
 
 export default initColor;

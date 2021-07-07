@@ -5,8 +5,8 @@ export const rangeSlice = createSlice({
   name: 'range',
   initialState: { colorData: initColor},
   reducers: {
-    changeColor: (state, action, id, channelName) => {
-      state.colorData.id = action.payload
+    changeColor: (state, action) => {
+      state.colorData = action.payload
     }
   },
 })
