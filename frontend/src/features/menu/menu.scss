@@ -1,6 +1,26 @@
 .menu {
+  position: fixed;
+  left: 83vw;
+  transform: translate3d(17vw, 0, 0);
   width: 17vw; 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+  .menu {
+      position: fixed;
+      left: 92vw;
+      transform: translate3d(8vw, 0, 0);
+      height: 95%;
+      width: 8vw;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .menu {
+      left: 94vw;
+      width: 6vw;
+  }
 }

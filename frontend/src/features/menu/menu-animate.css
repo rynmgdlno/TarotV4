@@ -1,0 +1,87 @@
+.menu-animate {
+  animation: menu-animate 70ms ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes menu-animate {
+  from {
+    transform: translate3d(17vw, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.menu-animate-return {
+  animation: menu-animate-return 70ms ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes menu-animate-return {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(17vw, 0, 0);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu-animate {
+    animation: menu-animate 70ms ease-in;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes menu-animate {
+    from {
+      transform: translate3d(6vw, 0, 0);
+    }
+    to {
+      transform: translate3d(0vw, 0, 0);
+    }
+  }
+
+  .menu-animate-return {
+    animation: menu-animate-return 70ms ease-in;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes menu-animate-return {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(6vw, 0, 0);
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .menu-animate {
+    animation: menu-animate 70ms ease-in;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes menu-animate {
+    from {
+      transform: translate3d(6vw, 0, 0);
+    }
+    to {
+      transform: translate3d(0vw, 0, 0);
+    }
+  }
+  
+  .menu-animate-return {
+    animation: menu-animate-return 70ms ease-in;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes menu-animate-return {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(6vw, 0, 0);
+    }
+  }
+}

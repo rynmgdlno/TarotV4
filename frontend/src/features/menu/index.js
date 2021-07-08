@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 // Components
 import CustomButton from '../../components/custom-button'
@@ -12,10 +13,15 @@ import UserIcon from '../../assets/icons/user.icon'
 
 // Styles
 import './menu.scss'
+import './menu-animate.css'
 
 const Menu = () => {
+  const menuToggled = useSelector((state) => state.menuToggle.menuToggled)
+  const menuInitialClass = useSelector((state) => state.menuAnimate.menuInitialClass)
+  console.log(menuInitialClass)
+
   return (
-    <div className='menu'>
+    <div className={menuToggled ? 'menu menu-animate' : `menu ${menuInitialClass}`}>
       <CustomButton className='menu-button'>
         <UserIcon />
       </CustomButton>
