@@ -8,7 +8,7 @@ import './slider.scss'
 
 const Slider = ({ id, channelName }) => {
   const dispatch = useDispatch()
-  const colorData = useSelector((state) => state.range.colorData)
+  const colorData = useSelector((state) => state.changeColor.colorData)
   const channelValue = colorData[id][channelName]
   const newColorData = JSON.parse(JSON.stringify(colorData))
   

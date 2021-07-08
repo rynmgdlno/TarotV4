@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import initColor from "../../assets/static/init-color";
 
 export const rangeSlice = createSlice({
-  name: 'range',
+  name: 'changeColor',
   initialState: { colorData: initColor},
   reducers: {
     changeColor: (state, action) => {

@@ -15,9 +15,9 @@ const Composer = () => {
       {initColor.map((color) => (
         <Color key={color.id} id={color.id}>
           <Editor id={color.id}>
-            <Slider id={color.id} channelName='red' channelValue={color.red}/>
-            <Slider id={color.id} channelName='green' channelValue={color.green}/>
-            <Slider id={color.id} channelName='blue' channelValue={color.blue}/>
+            {/* <Slider id={color.id} channelName='red' channelValue={color.red}/> */}
+            {/* <Slider id={color.id} channelName='green' channelValue={color.green}/> */}
+            {/* <Slider id={color.id} channelName='blue' channelValue={color.blue}/> */}
           </Editor>
         </Color>
       ))}

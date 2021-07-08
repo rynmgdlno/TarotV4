@@ -1,11 +1,36 @@
 import React from 'react'
 
+// Components
+import CustomButton from '../../components/custom-button'
+
+// Icons
+import HelpIcon from '../../assets/icons/help.icon'
+import OpenIcon from '../../assets/icons/open.icon'
+import SaveIcon from '../../assets/icons/save.icon'
+import ThemeIcon from '../../assets/icons/theme.icon'
+import UserIcon from '../../assets/icons/user.icon'
+
+// Styles
 import './menu.scss'
 
 const Menu = () => {
   return (
     <div className='menu'>
-      <span>Menu</span>
+      <CustomButton className='menu-button'>
+        <UserIcon />
+      </CustomButton>
+      <CustomButton className='menu-button'>
+        <OpenIcon />
+      </CustomButton>
+      <CustomButton className='menu-button'>
+        <SaveIcon />
+      </CustomButton>
+      <CustomButton className='menu-button'>
+        <ThemeIcon />
+      </CustomButton>
+      <CustomButton className='menu-button'>
+        <HelpIcon />
+      </CustomButton>
     </div>
   )
 }

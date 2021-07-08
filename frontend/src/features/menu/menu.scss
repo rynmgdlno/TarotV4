@@ -1,5 +1,6 @@
 .menu {
   width: 17vw; 
-  // height: calc(var(--vh, 1vh) * 92);
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }

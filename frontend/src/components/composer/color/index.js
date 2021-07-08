@@ -6,7 +6,7 @@ import { makeHex } from '../../../utility-functions/makeHex'
 import './color.scss'
 
 const Color = ({ id, children }) => {
-  const colorData = useSelector((state) => state.range.colorData)
+  const colorData = useSelector((state) => state.changeColor.colorData)
   const { red, green, blue } = colorData[id]
   const bgColor = { backgroundColor: `rgb(${red}, ${green}, ${blue})` }
 
