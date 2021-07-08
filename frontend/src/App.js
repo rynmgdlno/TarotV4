@@ -1,11 +1,18 @@
 import React from 'react';
-import Composer from './components/composer';
+import { Route, BrowserRouter } from 'react-router-dom'
+
+import Splash from './views/splash';
+import Tarot from './views/tarot';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Composer />
+      <BrowserRouter basename='/'>
+        <Route exact path='/' component={Splash} />
+        <Route exact path='/tarot' component={Tarot} />
+      </BrowserRouter>
     </div>
   );
 }

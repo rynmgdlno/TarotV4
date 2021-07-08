@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
+import {makeHex} from '../../utility-functions/makeHex/'
+
 import './color.module.scss'
 
 const Color = ({ id, children }) => {
@@ -8,8 +10,11 @@ const Color = ({ id, children }) => {
   const {red, green, blue} = colorData[id]
   const bgColor = { backgroundColor: `rgb(${red}, ${green}, ${blue})`}
 
+  const hex = makeHex([red, green, blue])
+
   return (
     <div style={bgColor}>
+    <span>{hex}</span>
       {children}
     </div>
   )
