@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './splash.module.scss'
+import './splash.scss'
 
 const Splash = () => {
   return (

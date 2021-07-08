@@ -1,10 +1,10 @@
 import React from 'react'
 
-import styles from './editor.module.scss'
+import './editor.scss'
 
 const Editor = ({ children }) => {
   return (
-    <div className={styles.editor}>
+    <div className='editor'>
       {children}
     </div>
   )

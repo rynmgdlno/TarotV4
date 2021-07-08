@@ -1,0 +1,7 @@
+.composer {
+  display: flex;
+  flex-direction: column;
+  width: 83vw;
+  height: calc(var(--vh, 1vh) * 92);
+  // border: 1px solid red;
+}

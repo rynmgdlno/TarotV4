@@ -1,38 +1,33 @@
 const initColor = [
   {
     id: 0, 
-    hex: 'ff0000',
-    red: 255,
-    green: 0,
-    blue: 0
+    red: 235,
+    green: 241,
+    blue: 205
   }, 
   {
     id: 1,
-    hex: 'ff7d00',
-    red: 255,
-    green: 125,
-    blue: 0
+    red: 50,
+    green: 133,
+    blue: 123
   }, 
   {
     id: 2,
-    hex: 'ffff00',
-    red: 255,
-    green: 255,
-    blue: 0
+    red: 93,
+    green: 180,
+    blue: 164
   }, 
   {
     id: 3,
-    hex: '00ff00',
-    red: 0,
-    green: 255,
-    blue: 0
+    red: 220,
+    green: 202,
+    blue: 128
   }, 
   {
     id: 4,
-    hex: '0000FF',
-    red: 0,
-    green: 0,
-    blue: 255
+    red: 220,
+    green: 154,
+    blue: 70
   }
 ]
 

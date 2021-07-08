@@ -1,16 +1,17 @@
 import React from 'react'
 
-import Color from '../color'
-import Editor from '../editor'
+// import Color from '../color'
+import Color from './color'
+import Editor from './color/editor'
 import Slider from '../../features/slider'
 
 import initColor from '../../assets/static/init-color'
 
-import './composer.module.scss'
+import './composer.scss'
 
 const Composer = () => {
   return (
-    <div>
+    <div className='composer'>
       {initColor.map((color) => (
         <Color key={color.id} id={color.id}>
           <Editor id={color.id}>

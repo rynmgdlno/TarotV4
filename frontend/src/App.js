@@ -6,6 +6,9 @@ import Tarot from './views/tarot';
 
 import './App.css';
 
+const vh = window.innerHeight * .01;
+document.documentElement.style.setProperty('--vh', `${vh}px`)
+
 function App() {
   return (
     <div className="App">
