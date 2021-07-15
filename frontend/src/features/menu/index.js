@@ -17,7 +17,7 @@ import './menu-animate.css'
 
 const Menu = () => {
   const menuToggled = useSelector((state) => state.menuToggle.menuToggled)
-  const menuInitialClass = useSelector((state) => state.menuAnimate.menuInitialClass)
+  const menuInitialClass = menuToggled == null ? 'menu-animate-off' : 'menu-animate-return' 
 
   return (
     <div className={menuToggled ? 'menu menu-animate' : `menu ${menuInitialClass}`}>

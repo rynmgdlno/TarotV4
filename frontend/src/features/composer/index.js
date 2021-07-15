@@ -14,17 +14,20 @@ import './composer.scss'
 
 const Composer = () => {
   const dispatch = useDispatch()
-  const composerInitialClass = useSelector((state) => state.composerAnimate.composerInitialClass)
-  const editorSlider = useSelector((state) => state.slideEditor.editorSlider)
   const menuToggled = useSelector((state) => state.menuToggle.menuToggled)
+  const composerInitialClass = menuToggled == null ? 'composer-animate-off' : 'composer-animate-return' 
+  const editorSlider = useSelector((state) => state.slideEditor.editorSlider)
 
   const toggleEditor = (id) => {
-    if (editorSlider != null && editorSlider === id) {
+    if (editorSlider !== null && editorSlider === id) {
       dispatch(slideEditor(false))
+
     } else {
       dispatch(slideEditor(id))
     }
   }
+
+
 
   return (
     <div className={menuToggled ? 'composer composer-animate' : `composer ${composerInitialClass}`}>

@@ -2,8 +2,6 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { menuToggle } from './menuSliderSlice'
-import { menuAnimate } from './menuAnimateSlice'
-import { composerAnimate } from './composerAnimateSlice'
 
 import CustomButton from '../../components/custom-button'
 
@@ -15,8 +13,6 @@ const MenuSlider = () => {
 
   const setMenuToggle = () => {
     dispatch(menuToggle(!menuToggled))
-    dispatch(menuAnimate('menu-animate-return'))
-    dispatch(composerAnimate('composer-animate-return'))
   }
 
   return (
