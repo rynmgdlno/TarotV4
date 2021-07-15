@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux'
 import { makeHex } from '../../../utility-functions/makeHex'
 
 import './color.scss'
+import './color-animate.css'
 
-const Color = ({ id, children }) => {
+const Color = ({ className, children, id }) => {
   const colorData = useSelector((state) => state.changeColor.colorData)
   const { red, green, blue } = colorData[id]
   const bgColor = { backgroundColor: `rgb(${red}, ${green}, ${blue})` }
@@ -13,7 +14,7 @@ const Color = ({ id, children }) => {
   const hex = makeHex([red, green, blue])
 
   return (
-    <div className='color' style={bgColor}>
+    <div className={className} style={bgColor}>
       <span>{hex}</span>
       {children}
     </div>

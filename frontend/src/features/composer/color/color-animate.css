@@ -1,0 +1,27 @@
+.color-animate {
+  animation: color-animate 70ms ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes color-animate {
+  from {
+    height: 20%;
+  }
+  to {
+    height: 16.5%;
+  }
+}
+
+.color-animate-return {
+  animation: color-animate-return 70ms ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes color-animate-return {
+  from {
+    height: 16.5%;
+  }
+  to {
+    height: 20%;
+  }
+}

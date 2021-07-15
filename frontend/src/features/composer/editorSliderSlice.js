@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export const editorSliderSlice = createSlice({
   name: 'slideEditor',
-  initialState: { editorSlider: false },
+  initialState: { editorSlider: null },
   reducers: {
     slideEditor: (state, action) => {
       state.editorSlider = action.payload
