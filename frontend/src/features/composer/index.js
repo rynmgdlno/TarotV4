@@ -9,8 +9,8 @@ import { slideEditor } from './editorSliderSlice'
 
 import initColor from '../../assets/static/init-color'
 
-import './composer.scss'
 import './composer-animate.css'
+import './composer.scss'
 
 const Composer = () => {
   const dispatch = useDispatch()
@@ -19,7 +19,7 @@ const Composer = () => {
   const menuToggled = useSelector((state) => state.menuToggle.menuToggled)
 
   const testFunc = (id) => {
-    if (editorSlider) {
+    if (editorSlider != null && editorSlider === id) {
       dispatch(slideEditor(false))
     } else {
       dispatch(slideEditor(id))
