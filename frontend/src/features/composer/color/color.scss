@@ -1,17 +1,6 @@
 .color {
   height: 20%;
-  // position: relative;
-
-  .invisible-button {
-    // position: absolute;
-    // top: 0px;
-    // left: 0px;
-    appearance: none;
-    width: 100%;
-    height: 100%;
-    outline: 1px solid red;
-    cursor: pointer;
-  }
+  cursor: pointer;
 
   .indicator-container {
     display: flex;

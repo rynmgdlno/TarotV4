@@ -10,7 +10,9 @@ const Editor = ({ children, className, id  }) => {
   const bgColor = { backgroundColor: `rgb(${red}, ${green}, ${blue})` }
 
   return (
-    <div className={className} style={bgColor}>
+    <div 
+    onClick={(e) => e.stopPropagation()}
+    className={className} style={bgColor}>
       {children}
     </div>
   )
