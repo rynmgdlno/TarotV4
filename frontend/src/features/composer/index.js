@@ -5,9 +5,9 @@ import Color from './color'
 import Editor from './color/editor'
 import Slider from '../editorRange'
 
-import { slideColor } from './color/colorSliderSlice'
-import { slideEditor } from './editorSliderSlice'
-import { menuToggle } from '../menuSlider/menuSliderSlice'
+// import { slideColor } from './color/colorSliderSlice'
+// import { slideEditor } from './editorSliderSlice'
+// import { menuToggle } from '../menuSlider/menuSliderSlice'
 
 import initColor from '../../assets/static/init-color'
 
@@ -30,18 +30,18 @@ const Composer = () => {
     'color-animate-off' :
     'color-animate-return'
 
-  const toggleEditor = (id) => {
-    if (editorSlider !== null && editorSlider === id) {
-      dispatch(slideColor(false))
-      dispatch(slideEditor(false))
-    } else {
-      dispatch(slideColor(true))
-      dispatch(slideEditor(id))
-      if (menuToggled !== null) {
-        dispatch(menuToggle(false))
-      }
-    }
-  }
+  // const toggleEditor = (id) => {
+  //   if (editorSlider !== null && editorSlider === id) {
+  //     dispatch(slideColor(false))
+  //     dispatch(slideEditor(false))
+  //   } else {
+  //     dispatch(slideColor(true))
+  //     dispatch(slideEditor(id))
+  //     if (menuToggled !== null) {
+  //       dispatch(menuToggle(false))
+  //     }
+  //   }
+  // }
 
   return (
     <div className={
@@ -57,7 +57,7 @@ const Composer = () => {
               'color color-animate' :
               `color ${colorInitialClass}`
           }>
-          <button onClick={() => toggleEditor(color.id)}>editor button test</button>
+          {/* <button className='invisible-button' onClick={() => toggleEditor(color.id)}/> */}
           <Editor
             id={color.id}
             className={

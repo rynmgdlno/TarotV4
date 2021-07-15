@@ -24,7 +24,7 @@ const MenuSlider = () => {
 
   return (
     <div>
-      <CustomButton onClick={setMenuToggle}>TEST</CustomButton>
+      <CustomButton onClick={setMenuToggle}>MENU</CustomButton>
     </div>
   )
 }
