@@ -1,6 +1,6 @@
 import React from 'react'
 
-import MenuSlider from '../../features/menuSlider'
+import MenuSlider from '../menuSlider'
 
 import './top-bar.scss'
 

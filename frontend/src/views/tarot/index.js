@@ -1,8 +1,9 @@
 import React from 'react'
 
-import Composer from '../../components/composer'
+// import Composer from '../../components/composer'
+import Composer from '../../features/composer'
 import Menu from '../../features/menu'
-import TopBar from '../../components/top-bar'
+import TopBar from '../../features/top-bar'
 
 import './tarot.scss'
 
