@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Color from './color'
 import Editor from './color/editor'
 import Slider from '../editorRange'
+
 import { slideEditor } from './editorSliderSlice'
 
 import initColor from '../../assets/static/init-color'
