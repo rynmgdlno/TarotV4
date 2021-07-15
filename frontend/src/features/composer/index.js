@@ -18,20 +18,19 @@ const Composer = () => {
   const editorSlider = useSelector((state) => state.slideEditor.editorSlider)
   const menuToggled = useSelector((state) => state.menuToggle.menuToggled)
 
-  const testFunc = (id) => {
+  const toggleEditor = (id) => {
     if (editorSlider != null && editorSlider === id) {
       dispatch(slideEditor(false))
     } else {
       dispatch(slideEditor(id))
     }
-    console.log(editorSlider)
   }
 
   return (
     <div className={menuToggled ? 'composer composer-animate' : `composer ${composerInitialClass}`}>
       {initColor.map((color) => (
         <Color key={color.id} id={color.id}>
-          <button onClick={() => testFunc(color.id)}>editor button test</button>
+          <button onClick={() => toggleEditor(color.id)}>editor button test</button>
           <Editor
             id={color.id}
             className={
