@@ -5,10 +5,6 @@ import Color from './color'
 import Editor from './color/editor'
 import Slider from '../editorRange'
 
-// import { slideColor } from './color/colorSliderSlice'
-// import { slideEditor } from './editorSliderSlice'
-// import { menuToggle } from '../menuSlider/menuSliderSlice'
-
 import initColor from '../../assets/static/init-color'
 
 import './composer-animate.css'
@@ -30,19 +26,6 @@ const Composer = () => {
     'color-animate-off' :
     'color-animate-return'
 
-  // const toggleEditor = (id) => {
-  //   if (editorSlider !== null && editorSlider === id) {
-  //     dispatch(slideColor(false))
-  //     dispatch(slideEditor(false))
-  //   } else {
-  //     dispatch(slideColor(true))
-  //     dispatch(slideEditor(id))
-  //     if (menuToggled !== null) {
-  //       dispatch(menuToggle(false))
-  //     }
-  //   }
-  // }
-
   return (
     <div className={
       menuToggled ?
@@ -57,7 +40,6 @@ const Composer = () => {
               'color color-animate' :
               `color ${colorInitialClass}`
           }>
-          {/* <button className='invisible-button' onClick={() => toggleEditor(color.id)}/> */}
           <Editor
             id={color.id}
             className={
