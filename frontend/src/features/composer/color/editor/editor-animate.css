@@ -1,6 +1,6 @@
 .editor-animate-off {
-  /* display: none; */
-  bottom: -30%;
+  display: none;
+  /* bottom: -30%; */
 }
 
 .editor-animate {
@@ -29,7 +29,7 @@
   }
 
   100% {
-    bottom: -30vh;
+    bottom: -30%;
   }
 }
 

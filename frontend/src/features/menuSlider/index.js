@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Hamburger from 'hamburger-react'
 
 import { slideColor } from '../composer/color/colorSliderSlice'
 import { menuToggle } from './menuSliderSlice'
 import { slideEditor } from '../composer/editorSliderSlice'
+
+import CustomButton from '../../components/custom-button'
 
 import './menu-slider.scss'
 
