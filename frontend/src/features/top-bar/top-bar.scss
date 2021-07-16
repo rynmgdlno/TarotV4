@@ -3,4 +3,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  .search-icon {
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 16px;
+    margin-right: auto;
+  }
+
+  h1 {
+    margin-left: 15px;
+    margin-right: 10px;
+    transition: all .7s ease-in-out;
+    font-family: 'Dancing Script', cursive;
+  }
 }
