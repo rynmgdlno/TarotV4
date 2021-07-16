@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Hamburger from 'hamburger-react'
 
 import { slideColor } from '../composer/color/colorSliderSlice'
 import { menuToggle } from './menuSliderSlice'
@@ -23,8 +24,12 @@ const MenuSlider = () => {
   }
 
   return (
-    <div>
-      <CustomButton onClick={setMenuToggle}>MENU</CustomButton>
+    <div className='hamburger'>
+      <Hamburger
+        color='#757575'
+        toggle={setMenuToggle}
+        toggled={menuToggled}
+      />
     </div>
   )
 }
