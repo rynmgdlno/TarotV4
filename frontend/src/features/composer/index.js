@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 import Color from './color'
 import Editor from './color/editor'
@@ -11,7 +11,6 @@ import './composer-animate.css'
 import './composer.scss'
 
 const Composer = () => {
-  const dispatch = useDispatch()
   const colorSlider = useSelector((state) => state.colorSlider.colorSlide)
   const editorSlider = useSelector((state) => state.slideEditor.editorSlider)
   const menuToggled = useSelector((state) => state.menuToggle.menuToggled)
@@ -49,7 +48,6 @@ const Composer = () => {
             <Slider id={color.id} channelName='red' channelValue={color.red} />
             <Slider id={color.id} channelName='green' channelValue={color.green} />
             <Slider id={color.id} channelName='blue' channelValue={color.blue} />
-            {/* <span>Editor for color {color.id}</span> */}
           </Editor>
         </Color>
       ))}
