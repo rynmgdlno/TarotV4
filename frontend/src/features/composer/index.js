@@ -45,9 +45,9 @@ const Composer = () => {
               editorSlider === color.id ?
                 'editor editor-animate' :
                 `editor ${editorInitialClass}`}>
-            <Slider id={color.id} channelName='red' channelValue={color.red} />
-            <Slider id={color.id} channelName='green' channelValue={color.green} />
-            <Slider id={color.id} channelName='blue' channelValue={color.blue} />
+            <Slider id={color.id} channelName='red' />
+            <Slider id={color.id} channelName='green' />
+            <Slider id={color.id} channelName='blue' />
           </Editor>
         </Color>
       ))}

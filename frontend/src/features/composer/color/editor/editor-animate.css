@@ -1,6 +1,6 @@
 .editor-animate-off {
   /* display: none; */
-  bottom: -17.5%;
+  bottom: -30%;
 }
 
 .editor-animate {
@@ -10,7 +10,7 @@
 
 @keyframes editor-animate {
   from {
-    bottom: -17.5%;
+    bottom: -30%;
   }
 
   to {
@@ -29,7 +29,7 @@
   }
 
   100% {
-    bottom: -16vh;
+    bottom: -30vh;
   }
 }
 

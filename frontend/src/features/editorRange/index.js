@@ -11,16 +11,25 @@ const Slider = ({ id, channelName }) => {
   const colorData = useSelector((state) => state.changeColor.colorData)
   const channelValue = colorData[id][channelName]
   const newColorData = JSON.parse(JSON.stringify(colorData))
-  
+  let sliderColor = ''
+
   const onSlider = (e) => {
     newColorData[id][channelName] = parseInt(e.target.value)
     dispatch(changeColor(newColorData))
   }
 
   return (
-    <div>
-      <p>{`${channelName}: ${channelValue}`}</p>
-      <input type='range' min='0' max='255' onChange={onSlider} colorid={id} name={channelName} defaultValue={channelValue} />
+    <div className='slider-container'>
+      <p>{`${channelValue}`}</p>
+      <input
+        className='slider'
+        type='range'
+        min='0'
+        max='255'
+        onChange={onSlider}
+        colorid={id}
+        name={channelName}
+        defaultValue={channelValue} />
     </div>
   )
 }
