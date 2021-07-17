@@ -9,7 +9,7 @@ import SignUp from './signUp'
 
 import CustomButton from '../../../components/custom-button'
 
-import './user-modal.scss'
+import '../modal.scss'
 import '../modal-animate.css'
 
 const UserModal = () => {
@@ -22,7 +22,7 @@ const UserModal = () => {
   const modalInitialClass = userToggled == null ? 'modal-animate-off' : 'modal-animate-return'
   const bgColor = darkMode ? { backgroundColor: '#212121' } : { backgroundColor: '#FAFAFA' }
 
-  auth.onAuthStateChanged(function(user){
+  auth.onAuthStateChanged(function (user) {
     if (user) {
       setCurrentUser(user)
       if (currentUser & currentUser.providerData[0].providerId === 'google.com') {
@@ -33,16 +33,16 @@ const UserModal = () => {
       setIsGoogle(false)
     }
   })
-  
-  console.log(userToggled, modalInitialClass)
 
   return (
-    <div className={userToggled ? 'user-modal modal-animate' : `user-modal ${modalInitialClass}`} >
-    <p>User Modal</p>
-      {/* <SignIn />
-      <CustomButton onClick={setSignUp(true)}>Create New Account</CustomButton>
-      <SignUp />
-      <AccountSettings /> */}
+    <div className={userToggled ? 'modal modal-animate' : `modal ${modalInitialClass}`} >
+      <p>User Modal</p>
+      {/* <SignIn /> */}
+      <CustomButton onClick={() => setSignUp(!signUp)}>Create New Account</CustomButton>
+      {
+        signUp && <SignUp />
+      }
+      {/* <AccountSettings /> */}
     </div>
   )
 }
