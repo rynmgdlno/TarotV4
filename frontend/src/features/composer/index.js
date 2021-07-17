@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 
 import Color from './color'
 import Editor from './color/editor'
-import Slider from '../editorRange'
+import Slider from '../slider'
 
 import initColor from '../../assets/static/init-color'
 

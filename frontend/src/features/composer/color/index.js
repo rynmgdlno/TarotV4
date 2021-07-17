@@ -4,7 +4,7 @@ import ColorLib from 'color'
 
 import { slideColor } from './colorSliderSlice'
 import { slideEditor } from '../editorSliderSlice'
-import { menuToggle } from '../../menuSlider/menuSliderSlice'
+import { menuToggle } from '../../menu/menuSlider/menuSliderSlice'
 
 import { makeHex } from '../../../utility-functions/makeHex'
 

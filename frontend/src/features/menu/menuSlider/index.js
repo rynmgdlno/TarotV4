@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Hamburger from 'hamburger-react'
 
-import { slideColor } from '../composer/color/colorSliderSlice'
+import { slideColor } from '../../composer/color/colorSliderSlice'
 import { menuToggle } from './menuSliderSlice'
-import { slideEditor } from '../composer/editorSliderSlice'
-
-import CustomButton from '../../components/custom-button'
+import { slideEditor } from '../../composer/editorSliderSlice'
 
 import './menu-slider.scss'
 
 const MenuSlider = () => {
   const dispatch = useDispatch()
-  const menuToggled = useSelector((state) => state.menuToggle.menuToggled)
+  const darkMode = useSelector((state) => state.setDarkMode.darkMode)
   const editorSlider = useSelector((state) => state.slideEditor.editorSlider)
+  const fillColor = darkMode ? 'rgba(255,255,255,.5)' : 'rgba(0,0,0,.5)'
+  const menuToggled = useSelector((state) => state.menuToggle.menuToggled)
 
   const setMenuToggle = () => {
     dispatch(menuToggle(!menuToggled))
@@ -24,9 +24,10 @@ const MenuSlider = () => {
   }
 
   return (
-    <div className='hamburger'>
+    <div className='hamburger icon'>
       <Hamburger
-        color='#757575'
+        className='icon'
+        color={fillColor}
         toggle={setMenuToggle}
         toggled={menuToggled}
       />

@@ -1,13 +1,16 @@
 import React from 'react';
 
-const SaveIcon = () => {
+import './icon.scss'
+
+const SaveIcon = ({className, fillColor}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      fill="#808080"
       width="35px"
-      height="35px">
+      height="35px"
+      className={className}
+      fill={fillColor}>
       <path
         d="M0 0h24v24H0V0z"
         fill="none" />

@@ -23,7 +23,7 @@ const Slider = ({ id, channelName }) => {
 
   return (
     <div className='slider-container'>
-      <p style={{ color: foreColor }}>{`${channelName[0]}:${channelValue}`}</p>
+      <p style={{ color: foreColor }}>{`${channelName[0]}: ${channelValue}`}</p>
       <input
         className='slider'
         type='range'

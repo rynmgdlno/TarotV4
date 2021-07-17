@@ -1,6 +1,8 @@
 .slider-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  text-align: left;
 
   p {
     color: rgba(255, 255, 255, .5);
@@ -8,13 +10,13 @@
     height: 1.3em;
     // border-radius: 5px;
     margin-left: 2em;
-    margin-right: 1em;
+    margin-right: auto;
   }
 
   .slider {
     appearance: none;
-    height: 9px;
-    width: 70%;
+    height: 11px;
+    width: 65%;
     margin-right: 3em;
     border-radius: 0px;
     background-color: rgba(255, 255, 255, .5);
