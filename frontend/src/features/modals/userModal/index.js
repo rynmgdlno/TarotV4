@@ -8,6 +8,7 @@ import SignIn from './signIn'
 import SignUp from './signUp'
 
 import CustomButton from '../../../components/custom-button'
+import FormInput from '../../../components/formInput'
 
 import '../modal.scss'
 import '../modal-animate.css'
@@ -20,7 +21,7 @@ const UserModal = () => {
   const darkMode = useSelector((state) => state.setDarkMode.darkMode)
   const userToggled = useSelector((state) => state.userModalToggle.userToggled)
   const modalInitialClass = userToggled == null ? 'modal-animate-off' : 'modal-animate-return'
-  const bgColor = darkMode ? { backgroundColor: '#212121' } : { backgroundColor: '#FAFAFA' }
+  const bgColor = darkMode ? { backgroundColor: 'rgba(33, 33, 33, .8)' } : { backgroundColor: 'rgba(250, 250, 250, .8)' }
 
   auth.onAuthStateChanged(function (user) {
     if (user) {
@@ -35,7 +36,10 @@ const UserModal = () => {
   })
 
   return (
-    <div className={userToggled ? 'modal modal-animate' : `modal ${modalInitialClass}`} >
+    <div
+      className={userToggled ? 'modal modal-animate' : `modal ${modalInitialClass}`}
+      style={bgColor}
+    >
       <p>User Modal</p>
       {/* <SignIn /> */}
       <CustomButton onClick={() => setSignUp(!signUp)}>Create New Account</CustomButton>
@@ -43,6 +47,13 @@ const UserModal = () => {
         signUp && <SignUp />
       }
       {/* <AccountSettings /> */}
+      <div className='test-form-container'>
+        <FormInput className='shadow'/>
+        <FormInput />
+        <FormInput />
+        <FormInput />
+        <FormInput />
+      </div>
     </div>
   )
 }
