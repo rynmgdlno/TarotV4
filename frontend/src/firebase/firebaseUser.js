@@ -26,7 +26,7 @@ export const updateEmail = async (newEmail) => {
 }
 
 // Update Password
-export const updateEmail = async (currentPassword, newPassword) => {
+export const updatePass = async (currentPassword, newPassword) => {
   try {
     await userReAuth(currentPassword)
     await user.updatePassword(newPassword)

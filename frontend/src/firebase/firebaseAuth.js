@@ -1,4 +1,4 @@
-import { auth, firestore } from "./firebaseConfig";
+import firebase, { auth, firestore } from "./firebaseConfig";
 
 // Google Sign In 
 const googleProvider = new firebase.auth.GoogleAuthProvider()
@@ -8,7 +8,7 @@ export const signInWithGoogle = () => auth.signInWithPopup(googleProvider)
 // Add User Doc to DB on Auth
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return
-  const userRef = firestore.doc(`users/${userAudi.uid}`)
+  const userRef = firestore.doc(`users/${userAuth.uid}`)
   const snapShot = await userRef.get()
   if (!snapShot.exists) {
     const { displayName, email} = userAuth

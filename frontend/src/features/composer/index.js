@@ -9,6 +9,7 @@ import initColor from '../../assets/static/init-color'
 
 import './composer-animate.css'
 import './composer.scss'
+import UserModal from '../modals/userModal'
 
 const Composer = () => {
   const colorSlider = useSelector((state) => state.colorSlider.colorSlide)
@@ -51,6 +52,7 @@ const Composer = () => {
           </Editor>
         </Color>
       ))}
+      <UserModal/>
     </div>
   )
 }

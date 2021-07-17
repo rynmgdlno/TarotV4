@@ -1,0 +1,32 @@
+/* .modal-animate-off {
+  left: -100%;
+  display: none;
+} */
+
+.modal-animate-return {
+  animation: modal-animate 70ms ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes modal-animate-return {
+  from {
+    left: -99%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+.modal-animate {
+  animation: modal-animate-return 70ms ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes modal-animate {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -99%;
+  }
+}
