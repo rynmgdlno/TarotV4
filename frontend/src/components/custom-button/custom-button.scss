@@ -1,40 +1,33 @@
 button {
   background-color: rgba(0,0,0,0);
   border: none;
+  border: 1px solid #616161;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding: .5rem;
   :hover {
     cursor: pointer;
   }
 }
 
-.custom-button {
-  border: 1px solid #616161;
-  border-radius: 5px;
-  cursor: pointer;
+.afm-btn {
+  // background-color: grey;
 }
 
-.splash-button {
-  margin-bottom: 1em;
-  padding: 5px;
-  width: 200px;
-}
-
-.secondary-button {
-  margin-top: 1em;
-  padding: 5px;
-}
-
-.tertiary-button {
-  margin-top: 5px;
-  width: auto;
+.basic-button {
+  border: none;
+  margin-left: auto;
 }
 
 .menu-button {
     margin-top: 1vh;
     margin-bottom: 1.5vh;
+    border: none;
 }
 
 .google-button {
-  background-color: #4C8BF5;
-  color: white;
-  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

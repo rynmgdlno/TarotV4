@@ -12,23 +12,24 @@ const FormInput = ({
   children,
   label,
   searchActive,
-  // onChange,
+  onChange,
   ...props
 }) => {
   
   return (
     <React.Fragment>
-      {/* <label htmlFor={name}>{label}</label> */}
+      <label style={{ fontSize: '12px'}}htmlFor={name}>{label}</label>
       <input
         id={name}
         name={name}
         type={type}
         placeholder={placeholder}
         value={value}
-        {...props}
-        className={`${className} ${searchActive}`}
-        // className={className}
+        className={className}
+        label={label}
+        onChange={onChange}
         style={error && {border: 'solid 1px red'}}
+        {...props}
       />
       { error && <p>{ error }</p>}
     </React.Fragment>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import CustomButton from '../../../components/custom-button'
 
 // import ChangeEmail from './changeEmail'
 import ChangeEmail from './changeEmail'
@@ -33,10 +34,42 @@ const AccountSettings = () => {
     email: false,
     password: false
   })
-  
+
   return (
     <div>
-      
+      <h3>Account Settings</h3>
+      {
+        acctPage.home &&
+        <div className='account-settings'>
+          <CustomButton
+            onClick={() => {
+              setAcctPage({
+                home: false,
+                user: true
+              })
+            }}>
+            Change User Name
+          </CustomButton>
+          <CustomButton
+            onClick={() => {
+              setAcctPage({
+                home: false,
+                email: true
+              })
+            }}>
+            Change Email
+          </CustomButton>
+          <CustomButton
+            onClick={() => {
+              setAcctPage({
+                home: false,
+                password: true
+              })
+            }}>
+            Change Password
+          </CustomButton>
+        </div>
+      }
     </div>
   )
 }
