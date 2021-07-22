@@ -16,8 +16,9 @@ export const updateUserName = async (newName) => {
 }
 
 // Update Email
-export const updateEmail = async (newEmail) => {
+export const updateEmail = async (newEmail, currentPassword) => {
   try {
+    await userReAuth(currentPassword)
     await user.updateEmail(newEmail)
     return 'Email Updated Successfully'
   } catch (error) {
@@ -39,7 +40,8 @@ export const updatePass = async (currentPassword, newPassword) => {
 // Update User // All Previous functions combined into one function
 export const updateUser = async (newName, newEmail, newPassword, currentPassword) => {
   const user = auth.currentUser
-
+  console.log('Firebase User Triggered')
+  console.log(newName, newEmail, newPassword, currentPassword)
   if (newName) {
     try {
       await user.updateProfile({
@@ -47,15 +49,18 @@ export const updateUser = async (newName, newEmail, newPassword, currentPassword
       })
       return 'Updated User Name Successfully'
     } catch (error) {
+      console.log(error)
       return error
     }
   }
 
   if (newEmail) {
     try {
+      await userReAuth(currentPassword)
       await user.updateEmail(newEmail)
       return 'Email Updated Successfully'
     } catch (error) {
+      console.log(error)
       return (error)
     }
   }
@@ -65,6 +70,7 @@ export const updateUser = async (newName, newEmail, newPassword, currentPassword
       await userReAuth(currentPassword)
       await user.updatePassword(newPassword)
     } catch (error) {
+      console.log(error)
       return error
     }
   }

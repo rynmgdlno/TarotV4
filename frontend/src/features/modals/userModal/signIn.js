@@ -38,8 +38,6 @@ const SignIn = ({setAccount}) => {
     }
   }
 
-  console.log(errorMessage)
-
   return (
     <div className='sign-in'>
       <p>Hello!</p>
@@ -56,13 +54,13 @@ const SignIn = ({setAccount}) => {
           name='password'
           type='password'
           onChange={handleChange} />
+        {
+          errorMessage && <span>{errorMessage.message}</span>
+        }
         <CustomButton
           onClick={handleSubmit}
           type='submit'
           className='afm-btn'>Sign In</CustomButton>
-        {
-          errorMessage && <span>{errorMessage.message}</span>
-        }
       </form>
       <CustomButton
         onClick={signInWithGoogle}

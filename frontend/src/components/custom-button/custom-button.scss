@@ -11,13 +11,21 @@ button {
   }
 }
 
-.afm-btn {
+// .afm-btn {
   // background-color: grey;
-}
+// }
 
 .basic-button {
   border: none;
   margin-left: auto;
+}
+
+.close-button {
+  font-size: .8rem;
+  border: 1px solid #000;
+  padding: .3rem;
+  // background-color: #666;
+  // color: white;
 }
 
 .menu-button {

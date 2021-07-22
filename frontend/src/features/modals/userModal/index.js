@@ -17,7 +17,6 @@ import '../modal-animate.css'
 
 const UserModal = () => {
   const [account, setAccount] = useState(false)
-  // const [accountSettings, setAccountSettings] = useState(false)
   const [currentUser, setCurrentUser] = useState(auth.currentUser)
   const dispatch = useDispatch()
   const [isGoogle, setIsGoogle] = useState(false)
@@ -38,6 +37,7 @@ const UserModal = () => {
       setIsGoogle(false)
     }
   })
+
 
   return (
     <div
@@ -72,12 +72,14 @@ const UserModal = () => {
         account &&
         <AccountSettings />
       }
-      <CustomButton
-        onClick={() => {
-          dispatch(userModalToggle(false))
-          dispatch(menuToggle(false))
-        }}
-        className='basic-button'>Close</CustomButton>
+      <div className='close-button-container'>
+        <CustomButton
+          onClick={() => {
+            dispatch(userModalToggle(false))
+            dispatch(menuToggle(false))
+          }}
+          className='basic-button close-button'>Close</CustomButton>
+      </div>
     </div>
   )
 }
