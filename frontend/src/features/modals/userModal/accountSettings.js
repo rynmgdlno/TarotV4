@@ -16,7 +16,7 @@ const AccountSettings = () => {
     newEmail: '',
     currentPassword: '',
     newPassword: '',
-    confirmNewPassword: '',
+    confirmPassword: '',
     passwordError: null
   })
 
@@ -34,7 +34,7 @@ const AccountSettings = () => {
       newEmail: '',
       currentPassword: '',
       newPassword: '',
-      confirmNewPassword: ''
+      confirmPassword: ''
     })
   }
 
@@ -52,6 +52,8 @@ const AccountSettings = () => {
     email: false,
     password: false
   })
+
+  console.log(firebaseMessage)
 
   return (
     <div className='account-settings'>
@@ -107,13 +109,13 @@ const AccountSettings = () => {
         <ChangePass
           handleChange={handleChange}
           handleSubmit={handleSubmit}
+          currentPassword={userInfo.currentPassword}
+          confirmPassword={userInfo.confirmPassword}
+          newPassword= {userInfo.newPassword}
         />
       }
       {
         firebaseMessage && <span>{firebaseMessage.message}</span>
-      }
-      {
-        
       }
     </div>
   )

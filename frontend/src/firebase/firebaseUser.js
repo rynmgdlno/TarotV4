@@ -67,8 +67,10 @@ export const updateUser = async (newName, newEmail, newPassword, currentPassword
 
   if (newPassword) {
     try {
+      console.log('Password update triggered')
       await userReAuth(currentPassword)
       await user.updatePassword(newPassword)
+      return 'Password Updated Successfully'
     } catch (error) {
       console.log(error)
       return error
