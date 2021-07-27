@@ -1,11 +1,24 @@
 import React from 'react'
 
+import CustomButton from '../../../components/custom-button'
+import FormInput from '../../../components/formInput'
+
 import './user-modal.scss'
 
-const ChangeUser = () => {
+const ChangeUser = ({ handleChange, handleSubmit }) => {
   return (
-    <div>
+    <div className='sign-in-form'>
       <p>Change Username</p>
+      <FormInput 
+        name='newName'
+        label='New Username'
+        type='text'
+        placeholder='new username'
+        onChange={handleChange}
+      />
+      <CustomButton onClick={() => handleSubmit()}>
+        Submit
+      </CustomButton>
     </div>
   )
 }

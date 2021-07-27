@@ -29,6 +29,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 // Re-Authenticate User
 export const userReAuth = async (currentPassword) => {
+  console.log('user re auth triggered')
   const user = auth.currentUser
   const credential = firebase.auth.EmailAuthProvider.credential(
     user.email,
@@ -37,6 +38,8 @@ export const userReAuth = async (currentPassword) => {
   try {
     await user.reauthenticateWithCredential(credential)
   } catch (error) {
+    console.log(error)
     return error
   }
+  console.log('re-auth success')
 }
