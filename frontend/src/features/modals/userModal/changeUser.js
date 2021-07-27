@@ -10,4 +10,4 @@ const ChangeUser = () => {
   )
 }
 
-      <p>Change Username</p>
+export default ChangeUser

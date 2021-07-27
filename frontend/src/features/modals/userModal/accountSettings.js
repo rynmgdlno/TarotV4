@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-// import ChangeEmail from './changeEmail'
 import ChangeEmail from './changeEmail'
 import ChangePass from './changePass'
 import ChangeUser from './changeUser'
@@ -36,7 +35,7 @@ const AccountSettings = () => {
   
   return (
     <div>
-      
+      <p>Account Settings</p>
     </div>
   )
 }

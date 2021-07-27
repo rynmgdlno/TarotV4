@@ -48,11 +48,16 @@ const UserModal = () => {
       }
       {/* <AccountSettings /> */}
       <div className='test-form-container'>
-        <FormInput className='shadow'/>
-        <FormInput />
-        <FormInput />
-        <FormInput />
-        <FormInput />
+        <span>First Name:</span>
+        <FormInput placeholder='test' />
+        <span>Last Name:</span>
+        <FormInput placeholder='test' />
+        <span>Email:</span>
+        <FormInput placeholder='test' />
+        <span>Phone:</span>
+        <FormInput placeholder='test' />
+        <span>Password:</span>
+        <FormInput placeholder='test' />
       </div>
     </div>
   )
