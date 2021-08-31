@@ -30,6 +30,8 @@
     "sass-loader": "^12.1.0"
   },
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "scp -r -i /Users/ryanmagdaleno/.ssh/zola ./build/* root@143.198.152.0:/deploy/amongthemasses/frontend",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

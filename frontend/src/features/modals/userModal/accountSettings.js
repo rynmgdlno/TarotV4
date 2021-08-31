@@ -56,10 +56,6 @@ const AccountSettings = () => {
   console.log(firebaseMessage)
 
   return (
-<<<<<<< HEAD
-    <div>
-      <p>Account Settings</p>
-=======
     <div className='account-settings'>
       <h3>Account Settings</h3>
       {
@@ -121,7 +117,6 @@ const AccountSettings = () => {
       {
         firebaseMessage && <span>{firebaseMessage.message}</span>
       }
->>>>>>> 71c67b04d909ce1358f93dcc2c59a0ecdffa1497
     </div>
   )
 }

@@ -72,20 +72,6 @@ const UserModal = () => {
         account &&
         <AccountSettings />
       }
-<<<<<<< HEAD
-      {/* <AccountSettings /> */}
-      <div className='test-form-container'>
-        <span>First Name:</span>
-        <FormInput placeholder='test' />
-        <span>Last Name:</span>
-        <FormInput placeholder='test' />
-        <span>Email:</span>
-        <FormInput placeholder='test' />
-        <span>Phone:</span>
-        <FormInput placeholder='test' />
-        <span>Password:</span>
-        <FormInput placeholder='test' />
-=======
       <div className='close-button-container'>
         <CustomButton
           onClick={() => {
@@ -93,7 +79,6 @@ const UserModal = () => {
             dispatch(menuToggle(false))
           }}
           className='basic-button close-button'>Close</CustomButton>
->>>>>>> 71c67b04d909ce1358f93dcc2c59a0ecdffa1497
       </div>
     </div>
   )
