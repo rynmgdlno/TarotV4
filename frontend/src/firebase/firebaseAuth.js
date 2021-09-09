@@ -26,7 +26,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
   return userRef
 }
-
+// git test
 // Re-Authenticate User
 export const userReAuth = async (currentPassword) => {
   console.log('user re auth triggered')
