@@ -77,6 +77,7 @@ const UserModal = () => {
           onClick={() => {
             dispatch(userModalToggle(false))
             dispatch(menuToggle(false))
+            setAccount(false)
           }}
           className='basic-button close-button'>Close</CustomButton>
       </div>

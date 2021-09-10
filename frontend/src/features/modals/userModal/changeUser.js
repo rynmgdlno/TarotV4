@@ -15,6 +15,7 @@ const ChangeUser = ({ handleChange, handleSubmit }) => {
         type='text'
         placeholder='new username'
         onChange={handleChange}
+        autoComplete='new-password'
       />
       <CustomButton onClick={() => handleSubmit()}>
         Submit

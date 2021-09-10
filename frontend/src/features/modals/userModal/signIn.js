@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { auth } from '../../../firebase/firebaseConfig'
-import { signInWithGoogle } from '../../../firebase/firebaseAuth'
+import { signInWithGoogle, resetPassEmail } from '../../../firebase/firebaseAuth'
 
 import CustomButton from '../../../components/custom-button'
 import GoogleIcon from '../../../assets/icons/google.icon'
@@ -9,12 +9,13 @@ import FormInput from '../../../components/formInput'
 
 import './user-modal.scss'
 
-const SignIn = ({setAccount}) => {
+const SignIn = ({ setAccount }) => {
   const [userInfo, setUserInfo] = useState({
     email: '',
     password: ''
   })
   const [errorMessage, setErrorMessage] = useState(false)
+  const [reset, setReset] = useState(false)
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -38,6 +39,10 @@ const SignIn = ({setAccount}) => {
     }
   }
 
+  const test = (stuff) => {
+    console.log(stuff)
+  }
+
   return (
     <div className='sign-in'>
       <p>Hello!</p>
@@ -55,7 +60,8 @@ const SignIn = ({setAccount}) => {
           type='password'
           onChange={handleChange} />
         {
-          errorMessage && <span>{errorMessage.message}</span>
+          errorMessage &&
+          <span>{errorMessage.message}</span>
         }
         <CustomButton
           onClick={handleSubmit}
@@ -67,6 +73,23 @@ const SignIn = ({setAccount}) => {
         className='google-button'>
         Sign In with<GoogleIcon className='btn-icn' /></CustomButton>
       <CustomButton>Create New Account</CustomButton>
+      {
+        errorMessage.code == 'auth/too-many-requests' &&
+        <CustomButton
+          onClick={() => {
+            resetPassEmail(userInfo.email)
+            setReset(true)
+            setErrorMessage(false)
+            setUserInfo({
+              email: '',
+              password: ''
+            })
+          }}
+          className='afm-button'>Reset Password</CustomButton>
+      }
+      {
+        reset && <p>Check your email for a link to reset your password.</p>
+      }
     </div>
   )
 }

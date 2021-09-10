@@ -25,7 +25,7 @@ const AccountSettings = () => {
     setUserInfo({
       ...userInfo,
       [name]: value
-    })
+    }, console.log(userInfo))
   }
 
   const clearUserInfo = () => {
@@ -38,14 +38,14 @@ const AccountSettings = () => {
     })
   }
 
-  const handleSubmit = async (e) => {
-    console.log('handle submit')
-    const { newName, newEmail, newPassword, currentPassword } = userInfo
-    const firebaseReturn = await updateUser(newName, newEmail, newPassword, currentPassword)
-    setFirebaseMessage(firebaseReturn)
-    clearUserInfo()
+  // Initial state for acct page. Using this to easily reset state on update completion, resetting to 'home' account page.
+  const acctInitState = {
+    home: true,
+    user: false,
+    email: false,
+    password: false
   }
-
+  // State object for conditionally rendering correct Account Setting page.
   const [acctPage, setAcctPage] = useState({
     home: true,
     user: false,
@@ -53,7 +53,17 @@ const AccountSettings = () => {
     password: false
   })
 
-  console.log(firebaseMessage)
+  // Submits to multi-firebase function at 'firebaseUser.js'. 
+  // The content passed dictates what operation to attempt (update, user, email, or pass, respectively)
+  // Then handles necessary UI updates and message/error display. 
+  const handleSubmit = async () => {
+    console.log('handle submit')
+    const { newName, newEmail, newPassword, currentPassword } = userInfo
+    const firebaseReturn = await updateUser(newName, newEmail, newPassword, currentPassword)
+    setFirebaseMessage(firebaseReturn)
+    clearUserInfo()
+    setAcctPage({ ...acctInitState })
+  }
 
   return (
     <div className='account-settings'>
@@ -111,7 +121,7 @@ const AccountSettings = () => {
           handleSubmit={handleSubmit}
           currentPassword={userInfo.currentPassword}
           confirmPassword={userInfo.confirmPassword}
-          newPassword= {userInfo.newPassword}
+          newPassword={userInfo.newPassword}
         />
       }
       {

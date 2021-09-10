@@ -26,7 +26,7 @@ const ChangePass = ({ handleChange, handleSubmit, currentPassword, newPassword, 
         value={newPassword}
       />
       <FormInput
-        name='Password'
+        name='confirmPassword'
         label='Confirm Password:'
         type='password'
         placeholder='confirm password'
