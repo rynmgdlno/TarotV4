@@ -1,8 +1,7 @@
 import ColorLib from 'color'
 
 
-// * Detects the luminosity of the passed color and returns the correct foreground color
-
+// * Detects the luminosity of the passed color and returns the correct foreground color. Takes an array ['r', 'g', 'b']
 export const luminosityTest = color => {
   const { red, green, blue} = color
   const formatColor = ColorLib.rgb(parseInt(red), parseInt(green), parseInt(blue))
@@ -11,7 +10,6 @@ export const luminosityTest = color => {
 
 
 // * Converts RGB values to Hexadecimal. Takes an array ['r', 'g', 'b']
-
 export const makeHex = (colors) => {
   let hex = '#'
 
