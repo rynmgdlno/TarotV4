@@ -40,14 +40,15 @@ export const updatePass = async (currentPassword, newPassword) => {
 // Update User // All Previous functions combined into one function
 export const updateUser = async (newName, newEmail, newPassword, currentPassword) => {
   const user = auth.currentUser
-  console.log('Firebase User Triggered')
-  console.log(newName, newEmail, newPassword, currentPassword)
   if (newName) {
     try {
       await user.updateProfile({
         displayName: newName
       })
-      return 'Updated User Name Successfully'
+      return {
+        status: 'success',
+        message: 'Updated User Name Successfully'
+      }
     } catch (error) {
       console.log(error)
       return error
@@ -56,9 +57,21 @@ export const updateUser = async (newName, newEmail, newPassword, currentPassword
 
   if (newEmail) {
     try {
-      await userReAuth(currentPassword)
-      await user.updateEmail(newEmail)
-      return 'Email Updated Successfully'
+      // assigning reAuth response to variable for handling
+      const reAuth = await userReAuth(currentPassword)
+      // if there is an error: 
+      if (reAuth) {
+        return {
+          status: 'error',
+          message: reAuth.message
+        }
+      } else {
+        await user.updateEmail(newEmail)
+        return {
+          status: 'success',
+          message: 'Email Updated Successfully'
+        }
+      }
     } catch (error) {
       console.log(error)
       return (error)
@@ -69,8 +82,19 @@ export const updateUser = async (newName, newEmail, newPassword, currentPassword
     try {
       console.log('Password update triggered')
       await userReAuth(currentPassword)
-      await user.updatePassword(newPassword)
-      return 'Password Updated Successfully'
+      const reAuth = await userReAuth(currentPassword)
+      if (reAuth) {
+        return {
+          status: 'error',
+          message: reAuth.message
+        }
+      } else {
+        await user.updatePassword(newPassword)
+        return {
+          status: 'success',
+          message: 'Password Updated Successfully'
+        }
+      }
     } catch (error) {
       console.log(error)
       return error
