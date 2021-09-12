@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { updateUser } from '../../../../../firebase/firebaseUser'
-// import { userReAuth } from '../../../../../firebase/firebaseAuth'
+
+import { userName } from '../userModalSlice'
 
 import ChangeEmail from './changeEmail'
 import ChangePass from './changePass'
@@ -10,6 +12,7 @@ import CustomButton from '../../../../../components/custom-button'
 import '../user-modal.scss'
 
 const AccountSettings = () => {
+  const dispatch = useDispatch()
   const [firebaseMessage, setFirebaseMessage] = useState(null)
   const [userInfo, setUserInfo] = useState({
     newName: '',
@@ -25,7 +28,7 @@ const AccountSettings = () => {
     setUserInfo({
       ...userInfo,
       [name]: value
-    }, console.log(userInfo))
+    })
   }
 
   const clearUserInfo = () => {
@@ -53,13 +56,26 @@ const AccountSettings = () => {
     password: false
   })
 
+  const setNewName = (newName) => {
+    dispatch(userName(newName))
+  }
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setFirebaseMessage(null)
+    }, 3000)
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [firebaseMessage])
+
   // Submits to multi-firebase function at 'firebaseUser.js'. 
   // The content passed dictates what operation to attempt (update, user, email, or pass, respectively)
   // Then handles necessary UI updates and message/error display. 
   const handleSubmit = async () => {
-    console.log('handle submit')
     const { newName, newEmail, newPassword, currentPassword } = userInfo
     const firebaseReturn = await updateUser(newName, newEmail, newPassword, currentPassword)
+    setNewName(newName)
     setFirebaseMessage(firebaseReturn)
     clearUserInfo()
     setAcctPage({ ...acctInitState })
