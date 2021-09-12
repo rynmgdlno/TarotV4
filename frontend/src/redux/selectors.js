@@ -7,13 +7,12 @@ import { useSelector } from "react-redux";
 
 // UI Selectors
 export const UI = () => {
-  const colorData = useSelector((state) => state.UI.composerReducer.channelEditorReducer.colorData)
-  const colorSlider = useSelector((state) => state.UI.composerReducer.colorSliderReducer.colorSlide)
-  const darkMode = useSelector((state) => state.UI.darkModeReducer.darkMode)
-  const editorSlider = useSelector((state) => state.UI.composerReducer.editorSliderReducer.editorSlider)
-  const menuToggled = useSelector((state) => state.UI.menuToggleReducer.menuToggled)
-  const userToggled = useSelector((state) => state.UI.modalsReducer.userModalReducer.userToggled)
-  return { colorData, colorSlider, darkMode, editorSlider, menuToggled, userToggled }
+  const colorData = useSelector((state) => state.UI.composer.channelEditorReducer.colorData)
+  const darkMode = useSelector((state) => state.UI.darkMode.toggled)
+  const editorOpen = useSelector((state) => state.UI.composer.editorSliderReducer.editorSlider)
+  const menuToggled = useSelector((state) => state.UI.menuToggle.menuToggled)
+  const userToggled = useSelector((state) => state.UI.modals.userModalReducer.userToggled)
+  return { colorData, darkMode, editorOpen, menuToggled, userToggled }
 }
 
 // Data Selectors

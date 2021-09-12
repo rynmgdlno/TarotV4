@@ -1,13 +1,13 @@
 import { combineReducers } from "redux";
 
-import composerReducer from "./composer/composerReducer";
-import darkModeReducer from './darkMode/darkModeSlice'
-import menuToggleReducer from './menu/menuSlider/menuSliderSlice'
-import modalsReducer from "./modals/modalsReducer";
+import composer from "./composer/composerReducer";
+import darkMode from './darkMode/darkModeSlice'
+import menuToggle from './menu/menuSlider/menuSliderSlice'
+import modals from "./modals/modalsReducer";
 
 export default combineReducers({
-  composerReducer,
-  darkModeReducer,
-  menuToggleReducer,
-  modalsReducer
+  composer,
+  darkMode,
+  menuToggle,
+  modals
 })

@@ -15,16 +15,15 @@ import './color-animate.css'
 
 const Color = ({ className, children, id }) => {
   const dispatch = useDispatch()
-  const { colorData, editorSlider, menuToggled } = UI()
+  const { colorData, editorOpen, menuToggled } = UI()
   const { red, green, blue } = colorData[id]
   const bgColor = { backgroundColor: `rgb(${red}, ${green}, ${blue})` }
   const colorForProc = ColorLib.rgb(parseInt(red), parseInt(green), parseInt(blue))
   const foreColor = colorForProc.isLight() ? 'rgba(0,0,0,.5)' : 'rgba(255,255,255,.5)'
-
   const hex = makeHex([red, green, blue])
 
   const toggleEditor = (id) => {
-    if (editorSlider !== null && editorSlider === id) {
+    if (editorOpen !== null && editorOpen === id) {
       dispatch(slideColor(false))
       dispatch(slideEditor(false))
     } else {
@@ -41,7 +40,7 @@ const Color = ({ className, children, id }) => {
       onClick={() => toggleEditor(id)}
       className={className} style={bgColor}>
       {
-        editorSlider === id &&
+        editorOpen === id &&
         <div className='indicator-container'>
           <span className='hex' style={{ color: foreColor }}>{hex}</span>
           <div className='indicator' style={{ backgroundColor: foreColor }} />

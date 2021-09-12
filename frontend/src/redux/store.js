@@ -25,7 +25,7 @@ export const store = configureStore({
   reducer: {
     UI: UIReducer
   },
-  middleware: [logger],
+  // middleware: [logger],
 });
 
 // console.log(store.getState())

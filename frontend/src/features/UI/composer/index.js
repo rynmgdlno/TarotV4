@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { UI } from '../../../redux/selectors'
 
 import Color from './color'
@@ -12,15 +13,16 @@ import './composer.scss'
 import UserModal from '../modals/userModal'
 
 const Composer = () => {
-  const { colorSlider, editorSlider, menuToggled } = UI()
+  // const editor = useSelector(state => state.UI.composer.editorOpen)
+  const { editorOpen, menuToggled } = UI()
 
   const composerInitialClass = menuToggled == null ?
     'composer-animate-off' :
     'composer-animate-return'
-  const editorInitialClass = editorSlider == null ?
+  const editorInitialClass = editorOpen == null ?
     'editor-animate-off' :
     'editor-animate-return'
-  const colorInitialClass = editorSlider == null ?
+  const colorInitialClass = editorOpen == null ?
     'color-animate-off' :
     'color-animate-return'
 
@@ -34,14 +36,14 @@ const Composer = () => {
           key={color.id}
           id={color.id}
           className={
-            colorSlider ?
+            editorOpen !== null && editorOpen !== false ?
               'color color-animate' :
               `color ${colorInitialClass}`
           }>
           <Editor
             id={color.id}
             className={
-              editorSlider === color.id ?
+              editorOpen === color.id ?
                 'editor editor-animate' :
                 `editor ${editorInitialClass}`}>
             <Slider id={color.id} channelName='red' />
