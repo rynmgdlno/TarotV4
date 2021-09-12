@@ -46,7 +46,7 @@ const UserModal = () => {
       <div style={{ width: '100%' }}>
         {
           !currentUser && signUp ?
-            <SignUp /> :
+            <SignUp setSignUp={setSignUp}/> :
             !currentUser ?
               <SignIn /> :
               <div className='user-header'>

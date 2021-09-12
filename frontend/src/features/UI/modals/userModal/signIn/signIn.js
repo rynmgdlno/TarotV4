@@ -9,7 +9,7 @@ import FormInput from '../../../../../components/formInput'
 
 import '../user-modal.scss'
 
-const SignIn = ({ setAccount }) => {
+const SignIn = ({ setAccount, setSignUp }) => {
   const [userInfo, setUserInfo] = useState({
     email: '',
     password: ''
@@ -37,10 +37,6 @@ const SignIn = ({ setAccount }) => {
     } catch (error) {
       setErrorMessage(error)
     }
-  }
-
-  const test = (stuff) => {
-    console.log(stuff)
   }
 
   return (
@@ -72,9 +68,9 @@ const SignIn = ({ setAccount }) => {
         onClick={signInWithGoogle}
         className='google-button'>
         Sign In with<GoogleIcon className='btn-icn' /></CustomButton>
-      <CustomButton>Create New Account</CustomButton>
+      <CustomButton onClick={setSignUp}>Create New Account</CustomButton>
       {
-        errorMessage.code == 'auth/too-many-requests' &&
+        errorMessage.code === 'auth/too-many-requests' &&
         <CustomButton
           onClick={() => {
             resetPassEmail(userInfo.email)
