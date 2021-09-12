@@ -4,7 +4,7 @@ import ColorLib from 'color'
 
 import { UI } from '../../../../../../redux/selectors'
 
-import { changeColor } from './rangeSlice'
+import { changeColor } from './channelEditorSlice'
 
 import './slider.scss'
 

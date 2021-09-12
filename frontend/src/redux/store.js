@@ -23,7 +23,7 @@ import UIReducer from '../features/UI/UIReducer'
 
 export const store = configureStore({
   reducer: {
-    UI: UIReducer
+    ui: UIReducer
   },
   // middleware: [logger],
 });

@@ -1,33 +1,31 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import ColorLib from 'color'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { UI } from '../../../../redux/selectors'
 
-import { slideColor } from './colorSliderSlice'
-import { slideEditor } from '../editorSliderSlice'
+import { colorDataSelector } from './editor/slider/channelEditorSlice'
+import { editorSelector, slideEditor } from '../editorSliderSlice'
 import { menuToggle } from '../../menu/menuSlider/menuSliderSlice'
 
-import { makeHex } from '../../../../utility-functions/makeHex'
+import { luminosityTest, makeHex } from '../../../../utility-functions'
 
 import './color.scss'
 import './color-animate.css'
 
 const Color = ({ className, children, id }) => {
   const dispatch = useDispatch()
-  const { colorData, editorOpen, menuToggled } = UI()
+  const colorData = useSelector(colorDataSelector)
+  const editorOpen = useSelector(editorSelector)
+  const { menuToggled } = UI()
   const { red, green, blue } = colorData[id]
+  const foreColor = luminosityTest(colorData[id])
   const bgColor = { backgroundColor: `rgb(${red}, ${green}, ${blue})` }
-  const colorForProc = ColorLib.rgb(parseInt(red), parseInt(green), parseInt(blue))
-  const foreColor = colorForProc.isLight() ? 'rgba(0,0,0,.5)' : 'rgba(255,255,255,.5)'
   const hex = makeHex([red, green, blue])
 
   const toggleEditor = (id) => {
     if (editorOpen !== null && editorOpen === id) {
-      dispatch(slideColor(false))
       dispatch(slideEditor(false))
     } else {
-      dispatch(slideColor(true))
       dispatch(slideEditor(id))
       if (menuToggled !== null) {
         dispatch(menuToggle(false))

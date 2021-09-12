@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 
-import channelEditorReducer from './color/editor/slider/rangeSlice'
+import channelEditor from './color/editor/slider/channelEditorSlice'
 import colorSliderReducer from './color/colorSliderSlice'
-import editorSliderReducer from './editorSliderSlice'
+import editor from './editorSliderSlice'
 
 export default combineReducers({
-  channelEditorReducer,
+  channelEditor,
   colorSliderReducer,
-  editorSliderReducer
+  editor
 })

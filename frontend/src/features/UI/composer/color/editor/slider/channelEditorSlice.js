@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import initColor from '../../../../../../assets/static/init-color'
 
-export const rangeSlice = createSlice({
+export const channelEditorSlice = createSlice({
   name: 'changeColor',
   initialState: { colorData: initColor},
   reducers: {
@@ -11,5 +11,6 @@ export const rangeSlice = createSlice({
   },
 })
 
-export const { changeColor } = rangeSlice.actions
-export default rangeSlice.reducer
+export const colorDataSelector = state => state.ui.composer.channelEditor.colorData
+export const { changeColor } = channelEditorSlice.actions
+export default channelEditorSlice.reducer
