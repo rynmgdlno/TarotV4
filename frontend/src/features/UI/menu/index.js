@@ -1,9 +1,9 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { UI } from '../../../redux/selectors'
-import { setDarkMode } from '../darkMode/darkModeSlice'
-import { userModalToggle } from '../modals/userModal/userModalSlice'
+import { darkModeSelector, setDarkMode } from '../darkMode/darkModeSlice'
+import { menuSelector } from '../menu/menuSlider/menuSliderSlice'
+import { userModalSelector, userModalToggle } from '../modals/userModal/userModalSlice'
 
 import CustomButton from '../../../components/custom-button'
 
@@ -18,7 +18,9 @@ import './menu-animate.css'
 
 const Menu = () => {
   const dispatch = useDispatch()
-  const { darkMode, menuToggled, userToggled } = UI()
+  const darkMode = useSelector(darkModeSelector)
+  const menuToggled = useSelector(menuSelector)
+  const userToggled = useSelector(userModalSelector)
   const menuInitialClass = menuToggled == null ? 'menu-animate-off' : 'menu-animate-return' 
   const fillColor = darkMode ? 'rgba(255,255,255,.5)' : 'rgba(0,0,0,.5)'
 

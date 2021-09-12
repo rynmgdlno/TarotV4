@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
-import userModalReducer from './userModal/userModalSlice'
+import userModal from './userModal/userModalSlice'
 
 export default combineReducers({
-  userModalReducer
+  userModal
 })

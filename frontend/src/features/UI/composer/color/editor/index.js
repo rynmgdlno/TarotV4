@@ -1,12 +1,14 @@
 import React from 'react'
 
-import { UI } from '../../../../../redux/selectors'
+import { useSelector } from 'react-redux'
+
+import { colorDataSelector } from './slider/channelEditorSlice'
 
 import './editor.scss'
 import './editor-animate.css'
 
 const Editor = ({ children, className, id  }) => {
-  const { colorData } = UI()
+  const colorData = useSelector(colorDataSelector)
   const { red, green, blue } = colorData[id]
   const bgColor = { backgroundColor: `rgb(${red}, ${green}, ${blue})` }
 

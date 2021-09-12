@@ -1,17 +1,16 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 import ColorLib from 'color'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
-import { UI } from '../../../../../../redux/selectors'
-
-import { changeColor } from './channelEditorSlice'
+import { colorDataSelector, changeColor } from './channelEditorSlice'
 
 import './slider.scss'
 
 
 const Slider = ({ id, channelName }) => {
   const dispatch = useDispatch()
-  const { colorData } = UI()
+  const colorData = useSelector(colorDataSelector)
   const channelValue = colorData[id][channelName]
   const newColorData = JSON.parse(JSON.stringify(colorData))
   const { red, green, blue } = colorData[id]

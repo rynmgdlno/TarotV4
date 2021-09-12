@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-// import { UI } from '../../../redux/selectors'
 
 import { editorSelector } from './editorSliderSlice'
 import { menuSelector } from '../menu/menuSlider/menuSliderSlice'
@@ -18,7 +17,6 @@ import UserModal from '../modals/userModal'
 const Composer = () => {
   const editorOpen = useSelector(editorSelector)
   const menuToggled = useSelector(menuSelector)
-  // const { editorOpen, menuToggled } = UI()
 
   const composerInitialClass = menuToggled == null ?
     'composer-animate-off' :

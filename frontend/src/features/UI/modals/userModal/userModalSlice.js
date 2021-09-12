@@ -10,5 +10,6 @@ export const userModalSlice = createSlice({
   },
 })
 
+export const userModalSelector = state => state.ui.modals.userModal.userToggled
 export const { userModalToggle } = userModalSlice.actions
 export default userModalSlice.reducer

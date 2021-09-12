@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { auth } from '../../../../firebase/firebaseConfig'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { UI } from '../../../../redux/selectors'
-import { userModalToggle } from './userModalSlice'
+import { darkModeSelector } from '../../darkMode/darkModeSlice'
 import { menuToggle } from '../../menu/menuSlider/menuSliderSlice'
+import { userModalSelector, userModalToggle } from './userModalSlice'
 
 import AccountSettings from './accountSettings/accountSettings'
 import SignIn from './signIn/signIn'
@@ -16,12 +16,13 @@ import '../modal.scss'
 import '../modal-animate.css'
 
 const UserModal = () => {
+  const dispatch = useDispatch()
   const [account, setAccount] = useState(false)
   const [currentUser, setCurrentUser] = useState(auth.currentUser)
-  const dispatch = useDispatch()
   const [isGoogle, setIsGoogle] = useState(false)
   const [signUp, setSignUp] = useState(false)
-  const { darkMode, userToggled } = UI()
+  const darkMode = useSelector(darkModeSelector)
+  const userToggled = useSelector(userModalSelector)
   const modalInitialClass = userToggled == null ? 'modal-animate-off' : 'modal-animate-return'
   const bgColor = darkMode ? { backgroundColor: 'rgba(33, 33, 33, 1)' } : { backgroundColor: 'rgba(250, 250, 250, 1)' }
 
