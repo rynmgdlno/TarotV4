@@ -1,6 +1,8 @@
+// New Branch Test (user menu)
+
+
 import React, { useState } from 'react'
 import { auth } from '../../../firebase/firebaseConfig'
-// import { createUserProfileDocument } from '../../../firebase/firebaseAuth'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { userModalToggle } from './userModalSlice'
@@ -37,7 +39,6 @@ const UserModal = () => {
       setIsGoogle(false)
     }
   })
-
 
   return (
     <div
