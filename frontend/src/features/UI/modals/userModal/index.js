@@ -17,9 +17,9 @@ import '../modal-animate.css'
 
 const UserModal = () => {
   const dispatch = useDispatch()
-  const [account, setAccount] = useState(false)
-  const [currentUser, setCurrentUser] = useState(auth.currentUser)
-  const [isGoogle, setIsGoogle] = useState(false)
+  const [account, setAccount] = useState(false) // account page toggle
+  const [currentUser, setCurrentUser] = useState(auth.currentUser) // stores user object
+  const [isThirdParty, setThirdParty] = useState(false) // Bool for if login method is Google/Apple/FB/GitHub
   const [signUp, setSignUp] = useState(false)
   const darkMode = useSelector(darkModeSelector)
   const userToggled = useSelector(userModalSelector)
@@ -30,11 +30,11 @@ const UserModal = () => {
     if (user) {
       setCurrentUser(user)
       if (currentUser && currentUser.providerData[0].providerId === 'google.com') {
-        setIsGoogle(true)
+        setThirdParty(true)
       }
     } else {
       setCurrentUser(null)
-      setIsGoogle(false)
+      setThirdParty(false)
     }
   })
 
@@ -57,7 +57,7 @@ const UserModal = () => {
                     onClick={() => auth.signOut()}
                     className='custom-button secondary-button'>Sign Out</CustomButton>
                   {
-                    isGoogle ?
+                    isThirdParty ?
                       null :
                       <CustomButton
                         onClick={() => setAccount(!account)}
