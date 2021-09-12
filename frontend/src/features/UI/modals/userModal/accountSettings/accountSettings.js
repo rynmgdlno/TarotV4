@@ -56,10 +56,12 @@ const AccountSettings = () => {
     password: false
   })
 
+  // Updater for displayed username
   const setNewName = (newName) => {
     dispatch(userName(newName))
   }
 
+  // timer for display of success message
   useEffect(() => {
     const timeout = setTimeout(() => {
       setFirebaseMessage(null)
