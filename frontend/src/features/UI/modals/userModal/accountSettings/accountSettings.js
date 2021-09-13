@@ -123,6 +123,7 @@ const AccountSettings = () => {
         <ChangeUser
           handleChange={handleChange}
           handleSubmit={handleSubmit}
+          userInfo={userInfo}
         />
       }
       {
@@ -130,6 +131,7 @@ const AccountSettings = () => {
         <ChangeEmail
           handleChange={handleChange}
           handleSubmit={handleSubmit}
+          userInfo={userInfo}
         />
       }
       {
@@ -137,6 +139,7 @@ const AccountSettings = () => {
         <ChangePass
           handleChange={handleChange}
           handleSubmit={handleSubmit}
+          userInfo={userInfo}
           currentPassword={userInfo.currentPassword}
           confirmPassword={userInfo.confirmPassword}
           newPassword={userInfo.newPassword}

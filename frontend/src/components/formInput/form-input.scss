@@ -1,6 +1,6 @@
 input[type=text],
- input[type=email],
- input[type=password]{
+input[type=email],
+input[type=password] {
   appearance: none;
   border-radius: 0%;
   height: 30px;
@@ -12,5 +12,9 @@ input[type=text],
   &:focus {
     border: 1px solid #212121;
     outline: none;
+  }
+
+  &.alert {
+    border-color: red;
   }
 }
