@@ -20,7 +20,6 @@ const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState(false)
   const passMatch = password === confirmPassword
 
-
   const handleChange = e => {
     const { name, value } = e.target
     setUserInfo({
@@ -61,8 +60,8 @@ const SignUp = () => {
       <form className='sign-up-form'>
         <FormInput
           className={clicked && btnDisabled && !displayName && 'alert'}
-          placeholder='display name'
-          label='display name:'
+          placeholder='user name'
+          label='user name:'
           name='displayName'
           type='text'
           onChange={handleChange}
@@ -86,7 +85,7 @@ const SignUp = () => {
         <FormInput
           className={clicked && btnDisabled && confirmPassword.length < 8 && 'alert'}
           placeholder='confirm password'
-          label='confirmPassword:'
+          label='confirm password:'
           name='confirmPassword'
           type='password'
           onChange={handleChange}
