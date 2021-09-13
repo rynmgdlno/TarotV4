@@ -47,7 +47,7 @@ const SignUp = () => {
     } else {
       setBtnDisabled(true)
     }
-  }, [password, confirmPassword, email])
+  }, [email, confirmPassword, password, passMatch])
 
   return (
     <div className='sign-up'>

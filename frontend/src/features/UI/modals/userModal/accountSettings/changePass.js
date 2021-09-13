@@ -20,7 +20,7 @@ const ChangePass = ({ handleChange, handleSubmit, userInfo }) => {
     } else {
       setBtnDisabled(true)
     }
-  }, [currentPassword, newPassword, confirmPassword])
+  }, [confirmPassword, currentPassword, newPassword, passMatch])
 
   return (
     <div className='sign-in-form'>

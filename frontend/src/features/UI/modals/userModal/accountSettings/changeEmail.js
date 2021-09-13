@@ -7,8 +7,6 @@ import FormInput from '../../../../../components/formInput'
 
 import '../user-modal.scss'
 
-
-
 const ChangeEmail = ({ handleChange, handleSubmit, userInfo }) => {
   const { newEmail, currentPassword } = userInfo
   const [clicked, setClicked] = useState(false)
