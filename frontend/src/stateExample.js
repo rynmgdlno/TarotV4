@@ -10,8 +10,28 @@
         { id: 3, red: 220, green: 202, blue: 128 },
         { id: 4, red: 220, green: 154, blue: 70 }
       ],
-        { colorSlider: false },
-        { editorSlider: false }
+        { colorSlider: false || true },
+        { editorSlider: false || true }
     }
+    modals: {
+      userModal: {
+        { userToggled: false || true }
+        { loggedIn: null || user }
+        { thirdParty: null || serviceName } 
+      }
+      palettesModal: {
+        { palettesToggled: false || true }
+        { savedPalettes: null || palettesObject }
+      }
+      saveModal: {
+        { saveToggled: false || true }
+      }
+      helpModal: {
+        { helpToggled: false || true }
+      }
+    }
+  }
+  DATA: {
+    
   }
 }

@@ -1,0 +1,64 @@
+.spinner {
+  animation: rotate 1.5s infinite linear;
+
+  .a {
+    opacity: 1;
+  }
+
+  .b {
+    opacity: .923;
+  }
+
+  .c {
+    opacity: .846;
+  }
+
+  .d {
+    opacity: .769;
+  }
+
+  .e {
+    opacity: .692;
+  }
+
+  .f {
+    opacity: .615;
+  }
+
+  .g {
+    opacity: .538;
+  }
+
+  .h {
+    opacity: .461;
+  }
+
+  .i {
+    opacity: .384;
+  }
+
+  .j {
+    opacity: .307;
+  }
+
+  .k {
+    opacity: .23;
+  }
+
+  .l {
+    opacity: .153;
+  }
+
+  .m {
+    opacity: .076;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}

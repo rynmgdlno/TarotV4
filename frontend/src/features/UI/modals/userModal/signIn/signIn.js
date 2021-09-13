@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { auth } from '../../../../../firebase/firebaseConfig'
+import * as EmailValidator from 'email-validator'
+
 import { signInWithGoogle, resetPassEmail } from '../../../../../firebase/firebaseAuth'
 
 import CustomButton from '../../../../../components/custom-button'
@@ -14,6 +16,9 @@ const SignIn = ({ setAccount, setSignUp }) => {
     email: '',
     password: ''
   })
+  const { email, password } = userInfo
+  const [clicked, setClicked] = useState(false)
+  const [btnDisabled, setBtnDisabled] = useState(true)
   const [errorMessage, setErrorMessage] = useState(false)
   const [reset, setReset] = useState(false)
 
@@ -25,7 +30,6 @@ const SignIn = ({ setAccount, setSignUp }) => {
   }
 
   const handleSubmit = async e => {
-    e.preventDefault()
     const { email, password } = userInfo
 
     try {
@@ -39,17 +43,27 @@ const SignIn = ({ setAccount, setSignUp }) => {
     }
   }
 
+  useEffect(() => {
+    if (password.length > 7 && EmailValidator.validate(email)) {
+      setBtnDisabled(false)
+    } else {
+      setBtnDisabled(true)
+    }
+  }, [email, password])
+
   return (
     <div className='sign-in'>
       <p>Hello!</p>
       <form className='sign-in-form'>
         <FormInput
+          className={clicked && btnDisabled && !EmailValidator.validate(email) && 'alert'}
           placeholder='email'
           label='email:'
           name='email'
           type='email'
           onChange={handleChange} />
         <FormInput
+          className={clicked && btnDisabled && password.length < 8 && 'alert'}
           placeholder='password'
           label='password:'
           name='password'
@@ -59,16 +73,19 @@ const SignIn = ({ setAccount, setSignUp }) => {
           errorMessage &&
           <span>{errorMessage.message}</span>
         }
-        <CustomButton
-          onClick={handleSubmit}
-          type='submit'
-          className='afm-btn'>Sign In</CustomButton>
       </form>
+      {
+        clicked && btnDisabled &&
+        <p className='alert'>Please fill out the form correctly.</p>
+      }
+      <CustomButton
+        onClick={!btnDisabled ? () => handleSubmit() : () => setClicked(true)}
+        type='submit'
+        className={btnDisabled && 'disabled-button'}>Sign In</CustomButton>
       <CustomButton
         onClick={signInWithGoogle}
         className='google-button'>
         Sign In with<GoogleIcon className='btn-icn' /></CustomButton>
-      <CustomButton onClick={setSignUp}>Create New Account</CustomButton>
       {
         errorMessage.code === 'auth/too-many-requests' &&
         <CustomButton
