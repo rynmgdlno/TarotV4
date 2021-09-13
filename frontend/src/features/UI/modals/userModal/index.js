@@ -64,13 +64,13 @@ const UserModal = () => {
                 <div className='user-button-container'>
                   <CustomButton
                     onClick={() => auth.signOut()}
-                    className='custom-button secondary-button'>Sign Out</CustomButton>
+                    className='account-button'>Sign Out</CustomButton>
                   {
                     isThirdParty ?
                       <div className='third-party'>You are signed in with {isThirdParty}</div> :
                       <CustomButton
                         onClick={() => setAccount(!account)}
-                        className=''>Account Settings</CustomButton>
+                        className='account-button'>Account Settings</CustomButton>
                   }
                 </div>
               </div>
@@ -81,7 +81,7 @@ const UserModal = () => {
         <AccountSettings />
       }
       {
-        !signUp &&
+        signUp &&
         <div className='modal-button'>
           <CustomButton onClick={() => setSignUp(true)}>Create New Account</CustomButton>
         </div>

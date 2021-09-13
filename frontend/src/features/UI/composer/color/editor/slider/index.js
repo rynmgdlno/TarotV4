@@ -34,9 +34,7 @@ const Slider = ({ id, channelName }) => {
         colorid={id}
         name={channelName}
         defaultValue={channelValue}
-        style={
-          { backgroundColor: foreColor }
-        }
+        style={{ backgroundColor: foreColor }}
       />
     </div>
   )

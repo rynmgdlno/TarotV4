@@ -16,7 +16,7 @@ const ChangeUser = ({ handleChange, handleSubmit, userInfo }) => {
       <FormInput
         className={clicked && btnDisabled && 'alert'}
         name='newName'
-        label='New Username'
+        label='New Username:'
         type='text'
         placeholder='new username'
         onChange={handleChange}
@@ -24,7 +24,7 @@ const ChangeUser = ({ handleChange, handleSubmit, userInfo }) => {
         autoComplete='new-password'
       />
       <CustomButton
-        className={btnClass}
+        className={`account-button ${btnClass}`}
         onClick={!btnDisabled ? () => handleSubmit() : () => setClicked(true)}>
         Submit
       </CustomButton>

@@ -30,7 +30,6 @@ const SignIn = ({ setAccount, setSignUp }) => {
   }
 
   const handleSubmit = async e => {
-    e.preventDefault()
     const { email, password } = userInfo
 
     try {

@@ -53,7 +53,7 @@ const ChangePass = ({ handleChange, handleSubmit, userInfo }) => {
         value={userInfo.confirmPassword}
       />
       <CustomButton
-        className={btnClass}
+        className={`account-button ${btnClass}`}
         type='submit'
         onClick={!btnDisabled ? () => handleSubmit() : () => setClicked(true)}>
         Submit

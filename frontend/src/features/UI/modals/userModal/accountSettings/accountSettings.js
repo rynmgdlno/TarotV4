@@ -90,6 +90,7 @@ const AccountSettings = () => {
         acctPage.home &&
         <div className='account-button-container'>
           <CustomButton
+            className='account-button'
             onClick={() => {
               setAcctPage({
                 home: false,
@@ -99,6 +100,7 @@ const AccountSettings = () => {
             Change User Name
           </CustomButton>
           <CustomButton
+            className='account-button'
             onClick={() => {
               setAcctPage({
                 home: false,
@@ -108,6 +110,7 @@ const AccountSettings = () => {
             Change Email
           </CustomButton>
           <CustomButton
+            className='account-button'
             onClick={() => {
               setAcctPage({
                 home: false,

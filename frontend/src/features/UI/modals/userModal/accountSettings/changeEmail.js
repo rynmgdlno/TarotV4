@@ -31,7 +31,7 @@ const ChangeEmail = ({ handleChange, handleSubmit, userInfo }) => {
       <FormInput
         className={clicked && btnDisabled && !EmailValidator.validate(newEmail) && 'alert'}
         name='newEmail'
-        label='New Email'
+        label='New Email:'
         type='text'
         placeholder='new email'
         onChange={handleChange}
@@ -40,14 +40,14 @@ const ChangeEmail = ({ handleChange, handleSubmit, userInfo }) => {
       <FormInput
         className={clicked && btnDisabled && !currentPassword && 'alert'}
         name='currentPassword'
-        label='Password'
+        label='Password:'
         type='password'
         placeholder='password'
         onChange={handleChange}
         value={userInfo.currentPassword}
       />
       <CustomButton
-        className={btnDisabled && 'disabled-button'}
+        className={btnDisabled ? 'disabled-button' : 'account-button'}
         onClick={!btnDisabled ? () => handleSubmit() : () => setClicked(true)}>
         Submit
       </CustomButton>
