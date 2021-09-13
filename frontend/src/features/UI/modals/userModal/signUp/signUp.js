@@ -41,11 +41,6 @@ const SignUp = () => {
     }
   }
 
-  const defaultHandler = (e) => {
-    console.log('test')
-    setClicked(true)
-  }
-
   useEffect(() => {
     if (password.length > 7 && passMatch && EmailValidator.validate(email)) {
       setBtnDisabled(false)
@@ -97,7 +92,7 @@ const SignUp = () => {
       </form>
       <CustomButton
         className={btnDisabled && 'disabled-button'}
-        onClick={!btnDisabled ? () => handleSubmit() : () => defaultHandler()}>
+        onClick={!btnDisabled ? () => handleSubmit() : () => setClicked(true)}>
         Submit
       </CustomButton>
       {
