@@ -62,13 +62,12 @@ const SignIn = ({ setAccount, setSignUp }) => {
         <CustomButton
           onClick={handleSubmit}
           type='submit'
-          className='afm-btn'>Sign In</CustomButton>
+          className='disabled-button'>Sign In</CustomButton>
       </form>
       <CustomButton
         onClick={signInWithGoogle}
         className='google-button'>
         Sign In with<GoogleIcon className='btn-icn' /></CustomButton>
-      <CustomButton onClick={setSignUp}>Create New Account</CustomButton>
       {
         errorMessage.code === 'auth/too-many-requests' &&
         <CustomButton

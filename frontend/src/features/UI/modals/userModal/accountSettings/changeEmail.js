@@ -13,7 +13,7 @@ const ChangeEmail = ({ handleChange, handleSubmit, userInfo }) => {
   const { newEmail, currentPassword } = userInfo
   const [clicked, setClicked] = useState(false)
   const [btnDisabled, setBtnDisabled] = useState(true)
-  const btnClass = btnDisabled ? 'disabled-button' : ''
+  // const btnClass = btnDisabled ? 'disabled-button' : ''
   const currentEmail = auth ? auth.currentUser.email : ''
 
   useEffect(() => {
@@ -48,7 +48,9 @@ const ChangeEmail = ({ handleChange, handleSubmit, userInfo }) => {
         onChange={handleChange}
         value={userInfo.currentPassword}
       />
-      <CustomButton className={btnClass} onClick={!btnDisabled ? () => handleSubmit() : () => setClicked(true)}>
+      <CustomButton
+        className={btnDisabled && 'disabled-button'}
+        onClick={!btnDisabled ? () => handleSubmit() : () => setClicked(true)}>
         Submit
       </CustomButton>
       {

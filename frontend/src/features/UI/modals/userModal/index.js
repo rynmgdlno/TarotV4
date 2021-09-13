@@ -35,6 +35,7 @@ const UserModal = () => {
   const modalInitialClass = userToggled == null ? 'modal-animate-off' : 'modal-animate-return'
   const bgColor = darkMode ? { backgroundColor: 'rgba(33, 33, 33, 1)' } : { backgroundColor: 'rgba(250, 250, 250, 1)' }
 
+  // listening to firebase auth and setting current user and login type
   auth.onAuthStateChanged(function (user) {
     if (user) {
       setCurrentUser(user)
@@ -69,7 +70,7 @@ const UserModal = () => {
                       <div className='third-party'>You are signed in with {isThirdParty}</div> :
                       <CustomButton
                         onClick={() => setAccount(!account)}
-                        className='' >Account Settings</CustomButton>
+                        className=''>Account Settings</CustomButton>
                   }
                 </div>
               </div>
@@ -79,12 +80,19 @@ const UserModal = () => {
         account &&
         <AccountSettings />
       }
+      {
+        !signUp &&
+        <div className='modal-button'>
+          <CustomButton onClick={() => setSignUp(true)}>Create New Account</CustomButton>
+        </div>
+      }
       <div className='close-button-container'>
         <CustomButton
           onClick={() => {
             dispatch(userModalToggle(false))
             dispatch(menuToggle(false))
             setAccount(false)
+            setSignUp(false)
           }}
           className='basic-button close-button'>Close</CustomButton>
       </div>
