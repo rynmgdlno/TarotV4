@@ -31,10 +31,8 @@ const UserModal = () => {
   const userToggled = useSelector(userModalSelector)
   const isThirdParty = useSelector(thirdPartySelector)
   // local state / form & page control
-  // const [currentUser, setCurrentUser] = useState(auth.currentUser)
   const [account, setAccount] = useState(false) // account page toggle
   const [signUp, setSignUp] = useState(false) // signup page toggle
-  // let unsubscribeFromAuth = null
   // UI state
   const modalInitialClass = userToggled == null ? 'modal-animate-off' : 'modal-animate-return'
 

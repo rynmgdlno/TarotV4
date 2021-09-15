@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { firestore } from '../../../../firebase/firebaseConfig'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { menuToggle } from '../../menu/menuSlider/menuSliderSlice'
 import { palettesToggledSelector } from './palettesSlice'
 import {
   currentUserSelector,
@@ -9,36 +9,36 @@ import {
   setSavedPalettes
 } from '../../../DATA/DATAReducer'
 
-import CustomButton from '../../../../components/custom-button'
 import FormInput from '../../../../components/formInput'
 
 import './palettesModal.scss'
-import { firestore } from '../../../../firebase/firebaseConfig'
 
 const PalettesModal = () => {
   const dispatch = useDispatch()
   const palettesToggled = useSelector(palettesToggledSelector)
+  const savedPalettes = useSelector(savedPalettesSelector)
   const currentUser = useSelector(currentUserSelector)
+  const [search, setSearch] = useState('')
   const modalInitialClass = palettesToggled == null ? 'modal-animate-off' : 'modal-animate-return'
 
   // search field filtering
-  let search = ''
   const handleChange = e => {
-    search = e.target.value
-    console.log(search)
+    setSearch(e.target.value)
   }
 
+  const filteredPalettes = savedPalettes && savedPalettes.filter(palette =>
+    palette.name.toLowerCase().includes(search.toLowerCase()))
+
+  // updating saved palettes array on user object change
   const updatePalettes = async () => {
     if (currentUser) {
       let newSavedPalettes = []
       const id = currentUser.id
       const palettes = firestore.collection(`users/${id}/palettes/`)
-      console.log(palettes)
       const snapShot = await palettes.get()
       snapShot.docs.forEach((doc) => {
-        newSavedPalettes.push(doc.data)
+        newSavedPalettes.push(doc.data())
       })
-      console.log(newSavedPalettes)
       dispatch(setSavedPalettes(newSavedPalettes))
     }
   }
@@ -57,7 +57,9 @@ const PalettesModal = () => {
         />
       </div>
       <div className='palettes-window'>
-
+        {filteredPalettes && filteredPalettes.map((palette, i) => (
+          <p key={i}>{palette.name}</p>
+        ))}
       </div>
     </div>
   )
