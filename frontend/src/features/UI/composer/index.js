@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
+import { activeColorSelector } from '../../DATA/DATAReducer'
 import { editorSelector } from './editorSliderSlice'
 import { menuSelector } from '../menu/menuSlider/menuSliderSlice'
 
@@ -8,14 +9,16 @@ import Color from './color'
 import Editor from './color/editor'
 import Slider from './color/editor/slider'
 
-import initColor from '../../../assets/static/init-color'
+// import initColor from '../../../assets/static/init-color'
 
 import './composer-animate.css'
 import './composer.scss'
 import PalettesModal from '../modals/palettesModal'
 import UserModal from '../modals/userModal'
+import { colorDataSelector } from './color/editor/slider/channelEditorSlice'
 
 const Composer = () => {
+  const colorData = useSelector(colorDataSelector)
   const editorOpen = useSelector(editorSelector)
   const menuToggled = useSelector(menuSelector)
 
@@ -34,7 +37,7 @@ const Composer = () => {
       menuToggled ?
         'composer composer-animate' :
         `composer ${composerInitialClass}`}>
-      {initColor.map((color) => (
+      {colorData.map((color) => (
         <Color
           key={color.id}
           id={color.id}
@@ -49,14 +52,14 @@ const Composer = () => {
               editorOpen === color.id ?
                 'editor editor-animate' :
                 `editor ${editorInitialClass}`}>
-            <Slider id={color.id} channelName='red' />
-            <Slider id={color.id} channelName='green' />
-            <Slider id={color.id} channelName='blue' />
+            <Slider id={color.id} channelName='red' color={color}/>
+            <Slider id={color.id} channelName='green' color={color}/>
+            <Slider id={color.id} channelName='blue' color={color}/>
           </Editor>
         </Color>
       ))}
-      <PalettesModal/>
-      <UserModal/>
+      <PalettesModal />
+      <UserModal />
     </div>
   )
 }

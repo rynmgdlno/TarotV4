@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { firestore } from '../../../../firebase/firebaseConfig'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { setActiveColor } from '../../../DATA/DATAReducer'
 import { palettesToggledSelector } from './palettesSlice'
 import {
   currentUserSelector,
@@ -9,6 +10,7 @@ import {
   setSavedPalettes
 } from '../../../DATA/DATAReducer'
 
+import Palette from './palette'
 import FormInput from '../../../../components/formInput'
 
 import './palettesModal.scss'
@@ -47,6 +49,9 @@ const PalettesModal = () => {
     updatePalettes()
   }, [currentUser])
 
+  // Individual palette operations
+  // Load Palette
+
   return (
     <div className={palettesToggled ? 'modal modal-animate' : `modal ${modalInitialClass}`}>
       <div className='palettes-header'>
@@ -58,7 +63,7 @@ const PalettesModal = () => {
       </div>
       <div className='palettes-window'>
         {filteredPalettes && filteredPalettes.map((palette, i) => (
-          <p key={i}>{palette.name}</p>
+          <Palette key={i} data={palette}/>
         ))}
       </div>
     </div>

@@ -8,12 +8,12 @@ import { colorDataSelector, changeColor } from './channelEditorSlice'
 import './slider.scss'
 
 
-const Slider = ({ id, channelName }) => {
+const Slider = ({ id, channelName, color }) => {
   const dispatch = useDispatch()
   const colorData = useSelector(colorDataSelector)
-  const channelValue = colorData[id][channelName]
+  const channelValue = color[channelName]
   const newColorData = JSON.parse(JSON.stringify(colorData))
-  const { red, green, blue } = colorData[id]
+  const { red, green, blue } = color
   const colorForProc = ColorLib.rgb(parseInt(red), parseInt(green), parseInt(blue))
   const foreColor = colorForProc.isLight() ? 'rgba(0,0,0,.5)' : 'rgba(255,255,255,.5)'
 
@@ -33,7 +33,7 @@ const Slider = ({ id, channelName }) => {
         onChange={onSlider}
         colorid={id}
         name={channelName}
-        defaultValue={channelValue}
+        value={channelValue}
         style={{ backgroundColor: foreColor }}
       />
     </div>

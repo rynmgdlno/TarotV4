@@ -13,7 +13,8 @@ export const lightTheme = {
   '--form-bg-color': '#FFF',
   '--form-border-color': '#DADADA',
   '--form-text-color': '#212121',
-  '--form-focus-border-color': '#212121'
+  '--form-focus-border-color': '#212121',
+  '--palette-border': '#757575'
 }
 
 export const darkTheme = {
@@ -29,5 +30,6 @@ export const darkTheme = {
   '--form-bg-color': '#404040',
   '--form-border-color': '#404040',
   '--form-text-color': '#FAFAFA',
-  '--form-focus-border-color': '#FAFAFA'
+  '--form-focus-border-color': '#FAFAFA',
+  '--palette-border': '#8A8A8A'
 }
