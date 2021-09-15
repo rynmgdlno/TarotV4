@@ -32,6 +32,13 @@
     }
   }
   DATA: {
-    
+    savedPalettes: []
+    prevQuery: ''
+    query: ''
+    queryResult: []
+    queryResultLength: null
+    activeQueryResult: 0
+    queryPages: 0
+    currentPage: 1
   }
 }

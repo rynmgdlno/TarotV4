@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { auth } from '../../../../firebase/firebaseConfig'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { darkModeSelector } from '../../darkMode/darkModeSlice'
+import { currentUserSelector, setCurrentUser } from '../../../DATA/DATAReducer'
 import { menuToggle } from '../../menu/menuSlider/menuSliderSlice'
 import {
   userNameSelector,
   userModalSelector,
   userModalToggle,
+  // currentUserSelector,
+  // setCurrentUser,
   thirdPartySelector,
   thirdParty
 } from './userModalSlice'
@@ -20,38 +22,51 @@ import CustomButton from '../../../../components/custom-button'
 
 import '../modal.scss'
 import '../modal-animate.css'
+import { createUserProfileDocument, userReAuth } from '../../../../firebase/firebaseAuth'
 
 const UserModal = () => {
   const dispatch = useDispatch()
-  const darkMode = useSelector(darkModeSelector)
+  const currentUser = useSelector(currentUserSelector)
   const userName = useSelector(userNameSelector)
   const userToggled = useSelector(userModalSelector)
   const isThirdParty = useSelector(thirdPartySelector)
   // local state / form & page control
-  const [currentUser, setCurrentUser] = useState(auth.currentUser)
+  // const [currentUser, setCurrentUser] = useState(auth.currentUser)
   const [account, setAccount] = useState(false) // account page toggle
   const [signUp, setSignUp] = useState(false) // signup page toggle
+  // let unsubscribeFromAuth = null
   // UI state
   const modalInitialClass = userToggled == null ? 'modal-animate-off' : 'modal-animate-return'
-  const bgColor = darkMode ? { backgroundColor: 'rgba(33, 33, 33, 1)' } : { backgroundColor: 'rgba(250, 250, 250, 1)' }
 
   // listening to firebase auth and setting current user and login type
-  auth.onAuthStateChanged(function (user) {
-    if (user) {
-      setCurrentUser(user)
-      if (currentUser && currentUser.providerData[0].providerId === 'google.com') {
-        dispatch(thirdParty('Google'))
+  useEffect(() => {
+    const unsubFromAuth = auth.onAuthStateChanged(async function (user) {
+      if (user) {
+        const userRef = await createUserProfileDocument(user)
+        userRef.onSnapshot(snapShot => {
+          dispatch(setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data()
+          }))
+          console.log(user)
+        }) 
+        if (currentUser && currentUser.providerData[0].providerId === 'google.com') {
+          dispatch(thirdParty('Google'))
+        }
+      } else {
+        dispatch(setCurrentUser(null))
+        dispatch(thirdParty(false))
       }
-    } else {
-      setCurrentUser(null)
-      dispatch(thirdParty(false))
+    })
+    return () => {
+      unsubFromAuth()
     }
-  })
+  }, [])
+
 
   return (
     <div
       className={userToggled ? 'modal modal-animate' : `modal ${modalInitialClass}`}
-      style={bgColor}
     >
       <div style={{ width: '100%' }}>
         {

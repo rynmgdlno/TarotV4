@@ -12,6 +12,7 @@ import initColor from '../../../assets/static/init-color'
 
 import './composer-animate.css'
 import './composer.scss'
+import PalettesModal from '../modals/palettesModal'
 import UserModal from '../modals/userModal'
 
 const Composer = () => {
@@ -54,6 +55,7 @@ const Composer = () => {
           </Editor>
         </Color>
       ))}
+      <PalettesModal/>
       <UserModal/>
     </div>
   )
