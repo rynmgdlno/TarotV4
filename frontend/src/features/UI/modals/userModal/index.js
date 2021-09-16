@@ -47,7 +47,7 @@ const UserModal = () => {
             ...snapShot.data()
           }))
           console.log(user)
-        }) 
+        })
         if (currentUser && currentUser.providerData[0].providerId === 'google.com') {
           dispatch(thirdParty('Google'))
         }
@@ -66,12 +66,15 @@ const UserModal = () => {
     <div
       className={userToggled ? 'modal modal-animate' : `modal ${modalInitialClass}`}
     >
-      <div style={{ width: '100%' }}>
+      <div className='user-menu'>
         {
           !currentUser && signUp ?
             <SignUp setSignUp={setSignUp} /> :
             !currentUser ?
-              <SignIn /> :
+              <div className='user-sub-menu'>
+                <SignIn />
+                <CustomButton className='account-button' onClick={() => setSignUp(true)}>Create New Account</CustomButton>
+              </div> :
               <div className='user-header'>
                 <h3 className="medFont">{currentUser ? userName || currentUser.displayName : 'error'}</h3>
                 <div className='user-button-container'>
@@ -93,12 +96,9 @@ const UserModal = () => {
         account &&
         <AccountSettings />
       }
-      {
-        signUp &&
-        <div className='modal-button'>
-          <CustomButton onClick={() => setSignUp(true)}>Create New Account</CustomButton>
-        </div>
-      }
+
+
+
       <div className='close-button-container'>
         <CustomButton
           onClick={() => {

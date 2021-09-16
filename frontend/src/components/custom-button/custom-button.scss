@@ -15,6 +15,7 @@ button {
 }
 
 .account-button {
+  width: 80%;
   &:hover {
     background-color: var(--button-hover-color);
   }
