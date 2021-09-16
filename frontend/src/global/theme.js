@@ -14,6 +14,7 @@ export const lightTheme = {
   '--form-border-color': '#DADADA',
   '--form-text-color': '#212121',
   '--form-focus-border-color': '#212121',
+  '--help-bg-color': 'rgba(250, 250, 250, .7)',
   '--palette-border': '#757575'
 }
 
@@ -31,5 +32,6 @@ export const darkTheme = {
   '--form-border-color': '#404040',
   '--form-text-color': '#FAFAFA',
   '--form-focus-border-color': '#FAFAFA',
+  '--help-bg-color': 'rgba(33, 33, 33, .7)',
   '--palette-border': '#8A8A8A'
 }

@@ -12,6 +12,7 @@ import Slider from './color/editor/slider'
 
 import './composer-animate.css'
 import './composer.scss'
+import HelpModal from '../modals/helpModal'
 import PalettesModal from '../modals/palettesModal'
 import UserModal from '../modals/userModal'
 import { colorDataSelector } from './color/editor/slider/channelEditorSlice'

@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { darkModeSelector, setDarkMode } from '../darkMode/darkModeSlice'
-import { menuSelector } from '../menu/menuSlider/menuSliderSlice'
+import { menuSelector, menuToggle } from '../menu/menuSlider/menuSliderSlice'
 import { palettesToggledSelector, palettesToggle } from '../modals/palettesModal/palettesSlice'
 import { userModalSelector, userModalToggle } from '../modals/userModal/userModalSlice'
 
@@ -36,6 +36,11 @@ const Menu = () => {
     if (userToggled) dispatch(userModalToggle())
   }
 
+  const toggleDarkMode = () => {
+    dispatch(setDarkMode())
+    dispatch(menuToggle())
+  }
+
   return (
     <div className={menuToggled ? 'menu menu-animate' : `menu ${menuInitialClass}`}>
       <CustomButton className='menu-button' onClick={toggleUser}>
@@ -47,7 +52,7 @@ const Menu = () => {
       <CustomButton className='menu-button'>
         <SaveIcon className='icon' fillColor={fillColor}/>
       </CustomButton>
-      <CustomButton className='menu-button' onClick={() => dispatch(setDarkMode(!darkMode))}>
+      <CustomButton className='menu-button' onClick={toggleDarkMode}>
         <ThemeIcon className='icon' fillColor={fillColor}/>
       </CustomButton>
       <CustomButton className='menu-button'>
