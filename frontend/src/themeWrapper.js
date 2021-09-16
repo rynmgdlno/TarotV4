@@ -1,17 +1,15 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { darkModeSelector, setTheme, themeSelector } from './features/UI/darkMode/darkModeSlice'
+import { useSelector } from 'react-redux'
+import { darkModeSelector } from './features/UI/darkMode/darkModeSlice'
 import { lightTheme, darkTheme } from './global/theme'
 
 const ThemeWrapper = ({ children }) => {
-  // const theme = useSelector(themeSelector)
   const darkMode = useSelector(darkModeSelector)
 
   const updateTheme = (newTheme) => {
     const cssKeys = Object.keys(newTheme)
     const cssValues = Object.values(newTheme)
 
-    console.log(newTheme)
     cssKeys.forEach((key, i) => {
       document.documentElement.style.setProperty(
         key,

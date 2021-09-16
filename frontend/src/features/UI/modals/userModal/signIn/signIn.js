@@ -56,14 +56,14 @@ const SignIn = ({ setAccount, setSignUp }) => {
       <p>Hello!</p>
       <form className='sign-in-form'>
         <FormInput
-          className={clicked && btnDisabled && !EmailValidator.validate(email) && 'alert'}
+          className={clicked && btnDisabled && !EmailValidator.validate(email) ? 'alert' : undefined}
           placeholder='email'
           label='email:'
           name='email'
           type='email'
           onChange={handleChange} />
         <FormInput
-          className={clicked && btnDisabled && password.length < 8 && 'alert'}
+          className={clicked && btnDisabled && password.length < 8 ? 'alert' : undefined}
           placeholder='password'
           label='password:'
           name='password'
@@ -81,7 +81,7 @@ const SignIn = ({ setAccount, setSignUp }) => {
       <CustomButton
         onClick={!btnDisabled ? () => handleSubmit() : () => setClicked(true)}
         type='submit'
-        className={btnDisabled && 'disabled-button'}>Sign In</CustomButton>
+        className={btnDisabled ? 'disabled-button' : undefined}>Sign In</CustomButton>
       <CustomButton
         onClick={signInWithGoogle}
         className='google-button'>

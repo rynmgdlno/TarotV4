@@ -6,6 +6,7 @@ import FormInput from '../../../../../components/formInput'
 import CustomButton from '../../../../../components/custom-button'
 
 import '../user-modal.scss'
+import { createUserProfileDocument } from '../../../../../firebase/firebaseAuth'
 
 const SignUp = () => {
   const [userInfo, setUserInfo] = useState({
@@ -31,13 +32,18 @@ const SignUp = () => {
     const { email, password } = userInfo
 
     try {
-      await auth.signInWithEmailAndPassword(email, password)
+      const { user } = await auth.createUserWithEmailAndPassword(email, password)
+      await createUserProfileDocument(user, { displayName })
       setUserInfo({
+        displayName: '',
         email: '',
-        password: ''
+        password: '',
+        confirmPassword: ''
       })
     } catch (error) {
-      setErrorMessage(error)
+      if (error.code === 'auth/email-already-in-use') {
+        setErrorMessage('email in use')
+      }
     }
   }
 

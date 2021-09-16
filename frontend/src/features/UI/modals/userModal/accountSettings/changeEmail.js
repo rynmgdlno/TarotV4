@@ -11,7 +11,6 @@ const ChangeEmail = ({ handleChange, handleSubmit, userInfo }) => {
   const { newEmail, currentPassword } = userInfo
   const [clicked, setClicked] = useState(false)
   const [btnDisabled, setBtnDisabled] = useState(true)
-  // const btnClass = btnDisabled ? 'disabled-button' : ''
   const currentEmail = auth ? auth.currentUser.email : ''
 
   useEffect(() => {

@@ -10,7 +10,7 @@
 
 @keyframes modal-animate-return {
   from {
-    left: -99%;
+    left: -100%;
   }
   to {
     left: 0%;
@@ -27,6 +27,6 @@
     left: 0%;
   }
   to {
-    left: -99%;
+    left: -100%;
   }
 }

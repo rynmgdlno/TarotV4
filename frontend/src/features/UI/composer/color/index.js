@@ -10,7 +10,7 @@ import { luminosityTest, makeHex } from '../../../../utility-functions'
 import './color.scss'
 import './color-animate.css'
 
-const Color = ({ className, children, id }) => {
+const Color = ({ className, children, id, data }) => {
   const dispatch = useDispatch()
   const colorData = useSelector(colorDataSelector)
   const editorOpen = useSelector(editorSelector)
