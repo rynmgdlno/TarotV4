@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './form-input.scss'
 
 const FormInput = ({
@@ -13,6 +14,7 @@ const FormInput = ({
   label,
   searchActive,
   onChange,
+  autoComplete,
   ...props
 }) => {
   
@@ -29,6 +31,7 @@ const FormInput = ({
         label={label}
         onChange={onChange}
         style={error && {border: 'solid 1px red'}}
+        autoComplete={autoComplete}
         {...props}
       />
       { error && <p>{ error }</p>}

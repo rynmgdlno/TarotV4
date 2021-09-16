@@ -2,16 +2,19 @@ import React from 'react';
 import { Route, BrowserRouter } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 
+import { darkModeSelector } from './features/UI/darkMode/darkModeSlice';
+
 import Splash from './views/splash';
 import Tarot from './views/tarot';
 
 import './App.css';
+import './global/global-styles.css'
 
 const vh = window.innerHeight * .01;
 document.documentElement.style.setProperty('--vh', `${vh}px`)
 
 function App() {
-  const darkMode = useSelector((state) => state.setDarkMode.darkMode)
+  const darkMode = useSelector(darkModeSelector)
   const bgColor = darkMode ? { backgroundColor: '#212121' } : { backgroundColor: '#FAFAFA' }
   
   return (
