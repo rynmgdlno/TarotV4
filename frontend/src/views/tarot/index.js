@@ -15,7 +15,7 @@ const Tarot = () => {
         <Composer />
         <Menu />
       </div>
-      <HelpModal />
+      {/* <HelpModal /> */}
     </div>
   )
 }
