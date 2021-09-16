@@ -38,7 +38,6 @@ const Menu = () => {
 
   const toggleDarkMode = () => {
     dispatch(setDarkMode())
-    dispatch(menuToggle())
   }
 
   return (
