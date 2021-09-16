@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-import { activeColorSelector } from '../../DATA/DATAReducer'
 import { editorSelector } from './editorSliderSlice'
 import { menuSelector } from '../menu/menuSlider/menuSliderSlice'
 

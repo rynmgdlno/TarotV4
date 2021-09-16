@@ -9,8 +9,8 @@ export const userModalSlice = createSlice({
     thirdParty: false
   },
   reducers: {
-    userModalToggle: (state, action) => {
-      state.userToggled = action.payload
+    userModalToggle: (state) => {
+      state.userToggled = !state.userToggled
     },
     //  userObject
     userName: (state, action) => {

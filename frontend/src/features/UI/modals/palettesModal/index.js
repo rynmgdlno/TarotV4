@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { firestore } from '../../../../firebase/firebaseConfig'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { setActiveColor } from '../../../DATA/DATAReducer'
 import { palettesToggledSelector } from './palettesSlice'
 import {
   currentUserSelector,

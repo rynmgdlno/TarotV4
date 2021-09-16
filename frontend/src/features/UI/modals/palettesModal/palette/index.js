@@ -2,6 +2,8 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 
 import { changeColor } from '../../../composer/color/editor/slider/channelEditorSlice'
+import { menuSelector, menuToggle } from '../../../menu/menuSlider/menuSliderSlice'
+import { palettesToggle } from '../palettesSlice'
 
 import CustomButton from '../../../../../components/custom-button'
 
@@ -17,8 +19,11 @@ const Color = (values) => {
 const Palette = ({ key, data }) => {
   const dispatch = useDispatch()
   const {name, palette} = data
+
   const loadPalette = (palette) => {
     dispatch(changeColor(palette))
+    dispatch(menuToggle())
+    dispatch(palettesToggle())
   }
 
   return (

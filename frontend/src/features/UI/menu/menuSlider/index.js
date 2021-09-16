@@ -5,6 +5,7 @@ import Hamburger from 'hamburger-react'
 import { darkModeSelector } from '../../darkMode/darkModeSlice'
 import { editorSelector, slideEditor } from '../../composer/editorSliderSlice'
 import { menuSelector, menuToggle } from './menuSliderSlice'
+import { palettesToggledSelector, palettesToggle } from '../../modals/palettesModal/palettesSlice'
 import { userModalSelector, userModalToggle } from '../../modals/userModal/userModalSlice'
 
 import './menu-slider.scss'
@@ -14,14 +15,16 @@ const MenuSlider = () => {
   const darkMode = useSelector(darkModeSelector)
   const editorOpen = useSelector(editorSelector)
   const menuToggled = useSelector(menuSelector)
-  const userModal = useSelector(userModalSelector)
+  const palettesOpen = useSelector(palettesToggledSelector)
+  const userOpen = useSelector(userModalSelector)
 
   const fillColor = darkMode ? 'rgba(255,255,255,.5)' : 'rgba(0,0,0,.5)'
 
   const setMenuToggle = () => {
     dispatch(menuToggle())
-    if (editorOpen !== null) {dispatch(slideEditor(false))}
-    if (userModal) {dispatch(userModalToggle(false))}
+    if (editorOpen !== null) { dispatch(slideEditor(false)) }
+    if (userOpen) { dispatch(userModalToggle()) }
+    if (palettesOpen) { dispatch(palettesToggle()) }
   }
 
   return (
