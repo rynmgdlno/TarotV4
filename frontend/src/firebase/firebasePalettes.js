@@ -13,7 +13,7 @@ export const savePalette = async (currentUser, palette, name) => {
         palette: palette
       })
     } catch (error) {
-      alert('Error saving palette, please try again', error)
+      alert('Error saving palette, please try again later.', error)
       return true
     }
     return true

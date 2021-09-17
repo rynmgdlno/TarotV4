@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { auth } from '../../../../../firebase/firebaseConfig'
 import * as EmailValidator from 'email-validator'
 
-import { signInWithGoogle, resetPassEmail } from '../../../../../firebase/firebaseAuth'
+import { signInEmail, signInWithGoogle, resetPassEmail } from '../../../../../firebase/firebaseAuth'
 
 import CustomButton from '../../../../../components/custom-button'
-import GoogleIcon from '../../../../../assets/icons/google.icon'
-
 import FormInput from '../../../../../components/formInput'
+import GoogleIcon from '../../../../../assets/icons/google.icon'
 
 import '../user-modal.scss'
 
-const SignIn = ({ setAccount, setSignUp }) => {
+const SignIn = () => {
   const [userInfo, setUserInfo] = useState({
     email: '',
     password: ''
@@ -29,18 +27,13 @@ const SignIn = ({ setAccount, setSignUp }) => {
     })
   }
 
-  const handleSubmit = async e => {
+  const handleSubmit = () => {
     const { email, password } = userInfo
-
-    try {
-      await auth.signInWithEmailAndPassword(email, password)
-      setUserInfo({
-        email: '',
-        password: ''
-      })
-    } catch (error) {
-      setErrorMessage(error)
-    }
+    signInEmail(email, password)
+    setUserInfo({
+      email: '',
+      password: ''
+    })
   }
 
   useEffect(() => {

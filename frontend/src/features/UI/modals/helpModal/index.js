@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import './help-modal.scss'
 
 const HelpModal = () => {
-  const [page, setPage] = useState(1)
   return (
     <div className='help-modal-container'>
       <div className='help-modal'>

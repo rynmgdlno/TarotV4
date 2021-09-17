@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { changeColor } from '../../../composer/color/editor/slider/channelEditorSlice'
 import { darkModeSelector } from '../../../darkMode/darkModeSlice'
-import { menuSelector, menuToggle } from '../../../menu/menuSlider/menuSliderSlice'
+import { menuToggle } from '../../../menu/menuSlider/menuSliderSlice'
 import { palettesToggle } from '../palettesSlice'
 
 import CustomButton from '../../../../../components/custom-button'

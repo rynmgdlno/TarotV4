@@ -30,6 +30,8 @@ const PalettesModal = () => {
   const filteredPalettes = savedPalettes && savedPalettes.filter(palette =>
     palette.name.toLowerCase().includes(search.toLowerCase()))
 
+  // ! // ALL FIREBASE PALETTE LOGIC NEEDS TO BE RE SORTED.
+  // ! // CALLING THE COLLECTION HERE IS HITTING YOUR FB QUOTA
   // updating saved palettes array on user object change
   const updatePalettes = async () => {
     if (currentUser) {
@@ -62,7 +64,7 @@ const PalettesModal = () => {
       </div>
       <div className='palettes-window'>
         {filteredPalettes && filteredPalettes.map((palette, i) => (
-          <Palette key={i} data={palette}/>
+          <Palette key={i} data={palette} />
         ))}
       </div>
     </div>

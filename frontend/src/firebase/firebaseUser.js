@@ -1,46 +1,43 @@
 import { userReAuth } from "./firebaseAuth";
 import { auth } from "./firebaseConfig";
-// import { useDispatch } from "react-redux";
 
-// import { userAccount } from "../features/UI/modals/userModal/userModalSlice";
+// const user = auth.currentUser
 
-const user = auth.currentUser
+// // Update Username
+// export const updateUserName = async (newName) => {
+//   try {
+//     await user.updateProfile({
+//       displayName: newName
+//     })
+//     return 'Updated User Name Successfully'
+//   } catch (error) {
+//     return error
+//   }
+// }
 
-// Update Username
-export const updateUserName = async (newName) => {
-  try {
-    await user.updateProfile({
-      displayName: newName
-    })
-    return 'Updated User Name Successfully'
-  } catch (error) {
-    return error
-  }
-}
+// // Update Email
+// export const updateEmail = async (newEmail, currentPassword) => {
+//   try {
+//     await userReAuth(currentPassword)
+//     await user.updateEmail(newEmail)
+//     return 'Email Updated Successfully'
+//   } catch (error) {
+//     return error
+//   }
+// }
 
-// Update Email
-export const updateEmail = async (newEmail, currentPassword) => {
-  try {
-    await userReAuth(currentPassword)
-    await user.updateEmail(newEmail)
-    return 'Email Updated Successfully'
-  } catch (error) {
-    return error
-  }
-}
-
-// Update Password
-export const updatePass = async (currentPassword, newPassword) => {
-  try {
-    await userReAuth(currentPassword)
-    await user.updatePassword(newPassword)
-  } catch (error) {
-    return error
-  }
-}
+// // Update Password
+// export const updatePass = async (currentPassword, newPassword) => {
+//   try {
+//     await userReAuth(currentPassword)
+//     await user.updatePassword(newPassword)
+//   } catch (error) {
+//     return error
+//   }
+// }
 
 //TODO: Test this and remove unnecessary functions
-// Update User // All Previous functions combined into one function
+// Update User // Handles updating of display name, password and email
 export const updateUser = async (newName, newEmail, newPassword, currentPassword) => {
   const user = auth.currentUser
   if (newName) {

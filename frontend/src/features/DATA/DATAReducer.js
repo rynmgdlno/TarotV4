@@ -1,7 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import initColor from "../../assets/static/init-color";
-
-const colorData = JSON.stringify(initColor)
 
 export const DATASlice = createSlice({
   name: 'DATASlice',

@@ -43,6 +43,8 @@ const SignUp = () => {
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         setErrorMessage('email in use')
+      } else {
+        setErrorMessage(error.code)
       }
     }
   }

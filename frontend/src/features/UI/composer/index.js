@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 
 import { editorSelector } from './editorSliderSlice'
@@ -8,13 +8,9 @@ import Color from './color'
 import Editor from './color/editor'
 import Slider from './color/editor/slider'
 
-// import initColor from '../../../assets/static/init-color'
-
 import './composer-animate.css'
 import './composer.scss'
-import HelpModal from '../modals/helpModal'
-import PalettesModal from '../modals/palettesModal'
-import UserModal from '../modals/userModal'
+
 import { colorDataSelector } from './color/editor/slider/channelEditorSlice'
 
 const Composer = () => {
@@ -58,8 +54,6 @@ const Composer = () => {
           </Editor>
         </Color>
       ))}
-      <PalettesModal />
-      <UserModal />
     </div>
   )
 }
