@@ -16,16 +16,14 @@ const Color = (values) => {
   return <div className='ind-color' style={bgColor} />
 }
 
-const fill = `rgba(119, 119, 119, .5)`
-
-const Palette = ({ key, data }) => {
+const Palette = ({ data }) => {
   const [showButtons, setShowButtons] = useState(false)
   const buttonClass = showButtons ? '' : 'buttons-hidden'
   const dispatch = useDispatch()
   const darkMode = useSelector(darkModeSelector)
   const fill = darkMode ? '#FAFAFA' : '#212121'
   const { name, palette } = data
-  console.log(buttonClass)
+
   const loadPalette = (palette) => {
     dispatch(changeColor(palette))
     dispatch(menuToggle())
@@ -33,7 +31,7 @@ const Palette = ({ key, data }) => {
   }
 
   return (
-    <div key={key} className='palette'>
+    <div className='palette'>
       <span className='palette-top'>
         <p>{name}</p>
         <CustomButton
@@ -44,8 +42,8 @@ const Palette = ({ key, data }) => {
       </span>
       <span className='colors'>
         {
-          palette.map((color, i) => (
-            <Color values={color} />
+          palette.map((color) => (
+            <Color key={color.id} values={color} />
           ))
         }
         <div className={`${buttonClass} palette-buttons`}>

@@ -37,29 +37,29 @@ const UserModal = () => {
   const modalInitialClass = userToggled == null ? 'modal-animate-off' : 'modal-animate-return'
 
   // listening to firebase auth and setting current user and login type
-  useEffect(() => {
-    const unsubFromAuth = auth.onAuthStateChanged(async function (user) {
-      if (user) {
-        const userRef = await createUserProfileDocument(user)
-        userRef.onSnapshot(snapShot => {
-          dispatch(setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data()
-          }))
-          console.log(user)
-        })
-        if (currentUser && currentUser.providerData[0].providerId === 'google.com') {
-          dispatch(thirdParty('Google'))
-        }
-      } else {
-        dispatch(setCurrentUser(null))
-        dispatch(thirdParty(false))
-      }
-    })
-    return () => {
-      unsubFromAuth()
-    }
-  }, [])
+  // useEffect(() => {
+  //   const unsubFromAuth = auth.onAuthStateChanged(async function (user) {
+  //     if (user) {
+  //       const userRef = await createUserProfileDocument(user)
+  //       userRef.onSnapshot(snapShot => {
+  //         dispatch(setCurrentUser({
+  //           id: snapShot.id,
+  //           ...snapShot.data()
+  //         }))
+  //         console.log(user)
+  //       })
+  //       if (currentUser && currentUser.providerData[0].providerId === 'google.com') {
+  //         dispatch(thirdParty('Google'))
+  //       }
+  //     } else {
+  //       dispatch(setCurrentUser(null))
+  //       dispatch(thirdParty(false))
+  //     }
+  //   })
+  //   return () => {
+  //     unsubFromAuth()
+  //   }
+  // }, [])
 
 
   return (

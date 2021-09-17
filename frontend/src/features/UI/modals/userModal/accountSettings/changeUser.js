@@ -14,7 +14,7 @@ const ChangeUser = ({ handleChange, handleSubmit, userInfo }) => {
     <div className='sign-in-form'>
       <p>Change Username</p>
       <FormInput
-        className={clicked && btnDisabled && 'alert'}
+        className={clicked && btnDisabled ? 'alert' : undefined}
         name='newName'
         label='New Username:'
         type='text'
