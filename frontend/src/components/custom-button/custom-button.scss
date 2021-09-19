@@ -64,6 +64,9 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  &:hover {
+    background-color: var(--button-hover-color);
+  }
 }
 
 .menu-button {
