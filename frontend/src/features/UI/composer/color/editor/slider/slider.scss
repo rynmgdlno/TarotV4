@@ -34,3 +34,11 @@
     mix-blend-mode: overlay;
   }
 }
+
+@media screen and(orientation: landscape) {
+  .slider-container {
+    .slider {
+      width: 80%;
+    }
+  }
+}

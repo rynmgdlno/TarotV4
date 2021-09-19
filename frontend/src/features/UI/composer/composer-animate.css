@@ -5,10 +5,10 @@
 
 @keyframes composer-animate {
   from {
-    width: 100%;
+    width: 100vw;
   }
   to {
-    width: 83%;
+    width: calc(100vw - 54px);
   }
 }
 
@@ -19,9 +19,9 @@
 
 @keyframes composer-animate-return {
   from {
-    width: 83%;
+    width: calc(100vw - 54px);
   }
   to {
-    width: 100%;
+    width: 100vw;
   }
 }

@@ -23,7 +23,7 @@ This project was built with React, Redux, vanilla CSS/SASS, and Firebase for use
 
 This is a work in progress.  
 Current task:
-- Fixing rerender/Firebase issue in saved palettes (WIP). 
+- Responsive Styles
 
 Remaining tasks:
 - Finish Palettes Browser Modal
@@ -31,8 +31,6 @@ Remaining tasks:
 - Totorial Modal
 - Splash Screen
 - Add loader spinners where applicable
-- 
-- Tablet / Desktop Styles
 - Rewrite API calls and search result logic for Redux. 
 - *Possible* Rewrite API in FastAPI.
 - Modify backend API to no longer return hex codes (now handled solely in the client)
