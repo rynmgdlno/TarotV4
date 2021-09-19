@@ -5,10 +5,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: calc(100% - 2px);
-  height: calc(100% - 2px);
+  width: calc(83vw - 2px);
+  height: calc(100% - (var(--vh, 1vh) * 8) - 2px);
   opacity: 1;
   background-color: var(--bg-color-main);
+  // border-top-right-radius: 20px;
 
   .close-button-container {
     display: flex;

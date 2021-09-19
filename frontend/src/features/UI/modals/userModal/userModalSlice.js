@@ -17,7 +17,7 @@ export const userModalSlice = createSlice({
       state.user = action.payload
     },
     // thirdParty
-    thirdParty: (state, action) => {
+    setThirdParty: (state, action) => {
       state.thirdParty = action.payload
     }
   },
@@ -27,5 +27,5 @@ export const userModalSelector = state => state.ui.modals.userModal.userToggled
 export const userNameSelector = state => state.ui.modals.userModal.user
 export const thirdPartySelector = state => state.ui.modals.userModal.thirdParty
 
-export const { userModalToggle, userName, thirdParty } = userModalSlice.actions
+export const { userModalToggle, userName, setThirdParty } = userModalSlice.actions
 export default userModalSlice.reducer

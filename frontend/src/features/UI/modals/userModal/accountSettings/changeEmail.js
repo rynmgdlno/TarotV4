@@ -28,7 +28,7 @@ const ChangeEmail = ({ handleChange, handleSubmit, userInfo }) => {
         currentEmail && <p>Current Email: {currentEmail}</p>
       }
       <FormInput
-        className={clicked && btnDisabled && !EmailValidator.validate(newEmail) && 'alert'}
+        className={clicked && btnDisabled && !EmailValidator.validate(newEmail) ? 'alert' : undefined}
         name='newEmail'
         label='New Email:'
         type='text'
@@ -37,7 +37,7 @@ const ChangeEmail = ({ handleChange, handleSubmit, userInfo }) => {
         value={userInfo.newEmail}
       />
       <FormInput
-        className={clicked && btnDisabled && !currentPassword && 'alert'}
+        className={clicked && btnDisabled && !currentPassword ? 'alert' : undefined}
         name='currentPassword'
         label='Password:'
         type='password'

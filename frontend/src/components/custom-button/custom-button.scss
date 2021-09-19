@@ -16,6 +16,7 @@ button {
 
 .account-button {
   width: 80%;
+
   &:hover {
     background-color: var(--button-hover-color);
   }
@@ -36,18 +37,33 @@ button {
   border: 1px solid var(--button-border-color);
   padding: .3rem;
   margin-top: 1rem;
+
   &:hover {
     background-color: var(--button-hover-color);
   }
+}
+
+.dots {
+  border: none;
+  margin: 0;
+  padding: 0;
+  opacity: .7;
 }
 
 .disabled-button {
   border-color: var(--button-disabled-border-color);
   color: var(--button-disabled-text-color);
   cursor: default;
+
   &:hover {
     background-color: rgba(0, 0, 0, 0);
   }
+}
+
+.google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu-button {
@@ -56,8 +72,9 @@ button {
   border: none;
 }
 
-.google-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.palette-button {
+  width: 100px;
+  margin: 0;
+  border: none;
+  text-align: right;
 }
