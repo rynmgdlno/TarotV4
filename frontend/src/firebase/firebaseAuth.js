@@ -1,8 +1,13 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import firebase, { auth, firestore } from "./firebaseConfig";
+import { updatePalettes } from './firebasePalettes';
 
-import { currentUserSelector, setCurrentUser } from '../features/DATA/DATAReducer';
+import {
+  currentUserSelector,
+  setCurrentUser,
+  setSavedPalettes
+} from '../features/DATA/DATAReducer';
 import { setThirdParty } from '../features/UI/modals/userModal/userModalSlice';
 
 // Google Sign In 
@@ -67,8 +72,8 @@ export const resetPassEmail = async (email) => {
 }
 
 
-// TODO // Hook for onAuthStateChanged. Currently calling in Tarot but can probably move 
-// TODO // back to userModal. Dependent on number of rerenders and FB queries.
+// * // Hook for onAuthStateChanged. Currently calling in Tarot but can probably move 
+// * // back to userModal. Dependent on number of rerenders and FB queries.
 
 export const useFirebaseAuth = (auth) => {
   const dispatch = useDispatch()
@@ -79,17 +84,21 @@ export const useFirebaseAuth = (auth) => {
       if (user) {
         const userRef = await createUserProfileDocument(user)
         userRef.onSnapshot(snapShot => {
+          const id = snapShot.id
+          const { displayName, email } = snapShot.data()
           dispatch(setCurrentUser({
-            id: snapShot.id,
-            displayName: snapShot.displayName,
-            email: snapShot.email
+            id: id,
+            displayName: displayName,
+            email: email
           }))
+          // Retrieving Saved Palettes and adding to store
+          updatePalettes(id).then(palettes => dispatch(setSavedPalettes(palettes)))
         })
-        // sets state for google/github etc. login to hide account settings menu
+        // sets state for google/github login to hide account settings menu
         if (user.providerData[0].providerId === 'password') {
           dispatch(setThirdParty(false))
         } else {
-          dispatch(setThirdParty(true))
+          dispatch(setThirdParty(user.providerData[0].providerId))
         }
       } else {
         dispatch(setCurrentUser(null))

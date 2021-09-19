@@ -5,18 +5,16 @@ import { useFirebaseAuth } from '../../firebase/firebaseAuth'
 
 import Composer from '../../features/UI/composer'
 import Menu from '../../features/UI/menu'
-// import PalettesModal from '../../features/UI/modals/palettesModal'
+import PalettesModal from '../../features/UI/modals/palettesModal'
+import SaveModal from '../../features/UI/modals/saveModal'
 import UserModal from '../../features/UI/modals/userModal'
 import TopBar from '../../features/UI/top-bar'
 
 import './tarot.scss'
 
 const Tarot = () => {
-
   useFirebaseAuth(auth)
 
-
-  console.log('rerender')
   return (
     <div className='primary'>
       <TopBar />
@@ -24,7 +22,8 @@ const Tarot = () => {
         <Composer />
         <Menu />
       </div>
-      {/* <PalettesModal /> */}
+      <PalettesModal />
+      <SaveModal />
       <UserModal />
     </div>
   )

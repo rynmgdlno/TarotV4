@@ -32,8 +32,6 @@ const UserModal = () => {
   // UI state
   const modalInitialClass = userToggled == null ? 'modal-animate-off' : 'modal-animate-return'
 
-  console.log(currentUser)
-
   return (
     <div
       className={userToggled ? 'modal modal-animate' : `modal ${modalInitialClass}`}
