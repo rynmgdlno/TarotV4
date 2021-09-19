@@ -37,6 +37,7 @@ const MenuSlider = () => {
         color={fillColor}
         toggle={setMenuToggle}
         toggled={menuToggled}
+        size={32}
       />
     </div>
   )
