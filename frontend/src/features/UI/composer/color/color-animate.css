@@ -1,5 +1,5 @@
 .color-animate {
-  animation: color-animate 70ms ease-in;
+  animation: color-animate var(--animation-time) ease-in;
   animation-fill-mode: forwards;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .color-animate-return {
-  animation: color-animate-return 70ms ease-in;
+  animation: color-animate-return var(--animation-time) ease-in;
   animation-fill-mode: forwards;
 }
 
@@ -37,7 +37,7 @@
   }
   
   .color-animate-return {
-    animation: color-animate-return 70ms ease-in;
+    animation: color-animate-return var(--animation-time) ease-in;
     animation-fill-mode: forwards;
   }
   

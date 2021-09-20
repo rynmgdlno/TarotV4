@@ -1,5 +1,5 @@
 .spinner {
-  animation: rotate 1.5s infinite linear;
+  animation: rotate var(--spinner-time) infinite linear;
 
   .a {
     opacity: 1;

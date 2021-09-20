@@ -1,5 +1,5 @@
 .menu-animate {
-  animation: menu-animate 70ms ease-in;
+  animation: menu-animate var(--animation-time) ease-in;
   animation-fill-mode: forwards;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .menu-animate-return {
-  animation: menu-animate-return 70ms ease-in;
+  animation: menu-animate-return var(--animation-time) ease-in;
   animation-fill-mode: forwards;
 }
 

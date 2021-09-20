@@ -12,4 +12,4 @@ export const store = configureStore({
   // middleware: [logger],
 });
 
-// console.log(store.getState())
+console.log(store.getState())

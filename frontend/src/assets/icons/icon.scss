@@ -1,5 +1,5 @@
 .icon {
-  transition: all .3s ease-in-out;
+  transition: all var(--animation-time) ease-in-out;
   // border: 1px solid red;
 }
 

@@ -4,7 +4,7 @@
 }
 
 .editor-animate {
-  animation: editor-animate 70ms ease-out;
+  animation: editor-animate var(--animation-time) ease-out;
   animation-fill-mode: forwards;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .editor-animate-return {
-  animation: editor-animate-return 70ms ease-out;
+  animation: editor-animate-return var(--animation-time) ease-out;
   animation-fill-mode: forwards;
 }
 
@@ -49,7 +49,7 @@
   }
   
   .editor-animate-return {
-    animation: editor-animate-return 70ms ease-out;
+    animation: editor-animate-return var(--animation-time) ease-out;
     animation-fill-mode: forwards;
   }
   

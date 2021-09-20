@@ -4,12 +4,12 @@
 } */
 
 .modal-animate {
-  animation: modal-animate 70ms ease-in;
+  animation: modal-animate var(--animation-time) ease-in;
   animation-fill-mode: forwards;
 }
 
 .modal-animate-return {
-  animation: modal-animate-return 70ms ease-in;
+  animation: modal-animate-return var(--animation-time) ease-in;
   animation-fill-mode: forwards;
 }
 
