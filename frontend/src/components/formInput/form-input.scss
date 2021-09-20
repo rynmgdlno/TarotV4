@@ -27,13 +27,13 @@ input[type=password] {
     margin-bottom: 0;
     width: 45%;
     opacity: 1;
-    // visibility: visible;
+    border: 1px solid var(--search-field-border);
+    background-color: var(--search-field-bg);
 
     &.search-active {
       left: -110px;
       width: 0%;
       opacity: 0;
-      // visibility: hidden;
     }
   }
 }

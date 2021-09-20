@@ -15,7 +15,9 @@ export const lightTheme = {
   '--form-text-color': '#212121',
   '--form-focus-border-color': '#212121',
   '--help-bg-color': 'rgba(250, 250, 250, .7)',
-  '--palette-border': '#757575'
+  '--palette-border': '#757575',
+  '--search-field-bg': '#fff',
+  '--search-field-border': '#ddd'
 }
 
 export const darkTheme = {
@@ -33,5 +35,7 @@ export const darkTheme = {
   '--form-text-color': '#FAFAFA',
   '--form-focus-border-color': '#FAFAFA',
   '--help-bg-color': 'rgba(33, 33, 33, .7)',
-  '--palette-border': '#8A8A8A'
+  '--palette-border': '#8A8A8A',
+  '--search-field-bg': '#000',
+  '--search-field-border': '#333'
 }
