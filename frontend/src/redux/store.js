@@ -7,7 +7,7 @@ import DATAReducer from '../features/DATA/DATAReducer'
 export const store = configureStore({
   reducer: {
     ui: UIReducer,
-    data: DATAReducer
+    data: DATAReducer,
   },
   // middleware: [logger],
 });

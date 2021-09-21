@@ -4,6 +4,7 @@ import composer from './composer/composerReducer'
 import darkMode from './darkMode/darkModeSlice'
 import menuToggle from './menu/menuSlider/menuSliderSlice'
 import modals from './modals/modalsReducer'
+import swipe from "./composer/swipeSlice";
 import topBar from './top-bar/topBarSlice'
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
   darkMode,
   menuToggle,
   modals,
+  swipe,
   topBar
 })

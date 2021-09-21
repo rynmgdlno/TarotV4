@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { colorDataSelector } from './editor/slider/channelEditorSlice'
 import { editorSelector, slideEditor } from '../editorSliderSlice'
 import { menuSelector, menuToggle } from '../../menu/menuSlider/menuSliderSlice'
+import { searchSelector, setSearchField } from '../../top-bar/topBarSlice'
 
 import { luminosityTest, makeHex } from '../../../../utility-functions'
 
@@ -15,6 +16,7 @@ const Color = ({ className, children, id, data }) => {
   const colorData = useSelector(colorDataSelector)
   const editorOpen = useSelector(editorSelector)
   const menuToggled = useSelector(menuSelector)
+  const searchToggled = useSelector(searchSelector)
   const { red, green, blue } = colorData[id]
   const foreColor = luminosityTest(colorData[id])
   const bgColor = { backgroundColor: `rgb(${red}, ${green}, ${blue})` }
@@ -25,9 +27,8 @@ const Color = ({ className, children, id, data }) => {
       dispatch(slideEditor(false))
     } else {
       dispatch(slideEditor(id))
-      if (menuToggled) {
-        dispatch(menuToggle(false))
-      }
+      if (menuToggled) dispatch(menuToggle(false))
+      if (searchToggled) dispatch(setSearchField())
     }
   }
 

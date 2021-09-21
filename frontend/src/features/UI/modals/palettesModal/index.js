@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import { palettesToggledSelector } from './palettesSlice'
-import {
-  savedPalettesSelector
-} from '../../../DATA/DATAReducer'
+import { savedPalettesSelector } from '../../../DATA/savedPalettesSlice'
+// import {
+//   savedPalettesSelector
+// } from '../../../DATA/DATAReducer'
 
 import Palette from './palette'
 import FormInput from '../../../../components/formInput'
