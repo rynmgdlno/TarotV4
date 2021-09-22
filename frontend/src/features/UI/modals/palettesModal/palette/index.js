@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { changeColor } from '../../../composer/color/editor/slider/channelEditorSlice'
+import { setColor } from '../../../composer/color/editor/slider/channelEditorSlice'
 import { currentUserSelector } from '../../../../DATA/currentUserSlice'
 import { setSavedPalettes } from '../../../../DATA/savedPalettesSlice'
 import { darkModeSelector } from '../../../darkMode/darkModeSlice'
@@ -38,7 +38,7 @@ const Palette = ({ data }) => {
 
   // opens selected palette in the composer
   const loadPalette = (palette) => {
-    dispatch(changeColor(palette))
+    dispatch(setColor(palette))
     dispatch(menuToggle())
     dispatch(palettesToggle())
   }

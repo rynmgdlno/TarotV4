@@ -11,7 +11,6 @@ const Editor = ({ children, className, id  }) => {
   const colorData = useSelector(colorDataSelector)
   const { red, green, blue } = colorData[id]
   const bgColor = { backgroundColor: `rgb(${red}, ${green}, ${blue})` }
-
   return (
     <div 
     onClick={(e) => e.stopPropagation()}

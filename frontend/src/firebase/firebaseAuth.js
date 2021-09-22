@@ -3,11 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import firebase, { auth, firestore } from "./firebaseConfig";
 import { updatePalettes } from './firebasePalettes';
 
-// import {
-//   currentUserSelector,
-//   setCurrentUser,
-//   setSavedPalettes
-// } from '../features/DATA/DATAReducer';
 import { currentUserSelector, setCurrentUser } from '../features/DATA/currentUserSlice';
 import { setSavedPalettes } from '../features/DATA/savedPalettesSlice';
 import { setThirdParty } from '../features/UI/modals/userModal/userModalSlice';

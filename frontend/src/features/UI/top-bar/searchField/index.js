@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { useDispatch } from 'react-redux'
-import { changeColor } from '../../composer/color/editor/slider/channelEditorSlice'
+import { setColor } from '../../composer/color/editor/slider/channelEditorSlice'
 import {
   setIsLoading,
   setNoResults,
@@ -12,7 +12,7 @@ import {
   setActiveResult,
   setCurrentPage,
   setResultLength
-} from '../../composer/swipeSlice'
+} from '../../swipe/swipeSlice'
 
 import FormInput from '../../../../components/formInput'
 
@@ -45,15 +45,17 @@ const SearchField = React.forwardRef(({ setSearchField, searchToggled }, ref) =>
       const data = await result.json()
       console.log(data)
       if (!data[2].length) {
+        console.log('no results')
         dispatch(setIsLoading(false))
         dispatch(setNoResults(true))
       } else {
+        console.log('post fetch updating')
         dispatch(setQueryResult(data[2]))
         dispatch(setQueryPages(data[1]))
         dispatch(setCurrentPage(data[0]))
-        dispatch(setActiveResult(0))
+        dispatch(setActiveResult(1))
         dispatch(setResultLength(data[2].length))
-        dispatch(changeColor(data[2][0]))
+        dispatch(setColor(data[2][0]))
         dispatch(setIsLoading(false))
       }
     } catch (error) {
