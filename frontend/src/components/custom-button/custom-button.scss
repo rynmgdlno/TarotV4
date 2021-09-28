@@ -1,5 +1,5 @@
 button {
-  transition: all .2s ease-in-out;
+  transition: all var(--animation-time) ease-in-out;
   background-color: rgba(0, 0, 0, 0);
   border: none;
   border: 1px solid var(--button-border-color);
@@ -80,4 +80,18 @@ button {
   margin: 0;
   border: none;
   text-align: right;
+}
+
+.search-button {
+  transition: all var(--animation-time) ease-in-out;
+  position: absolute;
+  left: 0;
+  margin: 0 16px;
+  padding: 0;
+  border: none;
+  z-index: 999;
+
+  &.search-active {
+    left: -40px;
+  }
 }

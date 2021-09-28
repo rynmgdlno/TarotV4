@@ -1,26 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import './form-input.scss'
 
-const FormInput = ({
+const FormInput = React.forwardRef(({
   name,
   type,
   placeholder,
   className,
   value,
   error,
-  children,
   label,
-  searchActive,
   onChange,
   autoComplete,
   ...props
-}) => {
-  
+}, ref) => {
+
   return (
     <React.Fragment>
-      <label style={{ fontSize: '12px'}}htmlFor={name}>{label}</label>
+      <label style={{ fontSize: '12px' }} htmlFor={name}>{label}</label>
       <input
         id={name}
         name={name}
@@ -30,27 +28,26 @@ const FormInput = ({
         className={className}
         label={label}
         onChange={onChange}
-        style={error && {border: 'solid 1px red'}}
+        ref={ref}
+        style={error && { border: 'solid 1px red' }}
         autoComplete={autoComplete}
         {...props}
       />
-      { error && <p>{ error }</p>}
+      {error && <p>{error}</p>}
     </React.Fragment>
   )
-}
+})
 
 FormInput.defaultProps = {
-  type: "text",
-  className: ""
+  type: 'text',
+  className: ''
 }
 
 FormInput.propTypes = {
-  // name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['text', 'number', 'password', 'email']),
   className: PropTypes.string,
-  value: PropTypes.any,
-  // onChange: PropTypes.func.isRequired
+  value: PropTypes.any
 }
 
-export default FormInput;
+export default FormInput

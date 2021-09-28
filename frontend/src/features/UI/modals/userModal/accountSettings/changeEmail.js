@@ -23,7 +23,6 @@ const ChangeEmail = ({ handleChange, handleSubmit, userInfo }) => {
 
   return (
     <div className='sign-in-form'>
-      <p>Change Email</p>
       {
         currentEmail && <p>Current Email: {currentEmail}</p>
       }

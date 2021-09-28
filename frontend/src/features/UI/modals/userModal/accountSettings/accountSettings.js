@@ -85,7 +85,6 @@ const AccountSettings = () => {
 
   return (
     <div className='account-settings'>
-      <h3>Account Settings</h3>
       {
         acctPage.home &&
         <div className='account-button-container'>

@@ -3,7 +3,7 @@ import ColorLib from 'color'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 
-import { colorDataSelector, changeColor } from './channelEditorSlice'
+import { colorDataSelector, setColor } from './channelEditorSlice'
 
 import './slider.scss'
 
@@ -19,7 +19,7 @@ const Slider = ({ id, channelName, color }) => {
 
   const onSlider = (e) => {
     newColorData[id][channelName] = parseInt(e.target.value)
-    dispatch(changeColor(newColorData))
+    dispatch(setColor(newColorData))
   }
 
   return (

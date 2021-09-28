@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updatePalettes } from '../../../../firebase/firebasePalettes'
 
 import { colorDataSelector } from '../../composer/color/editor/slider/channelEditorSlice'
-import { currentUserSelector, setSavedPalettes } from '../../../DATA/DATAReducer'
+import { currentUserSelector } from '../../../DATA/currentUserSlice'
+import { setSavedPalettes } from '../../../DATA/savedPalettesSlice'
+// import { currentUserSelector, setSavedPalettes } from '../../../DATA/DATAReducer'
 import { saveToggledSelector } from './saveSlice'
 import { savePalette } from '../../../../firebase/firebasePalettes'
 
