@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   activeResultSelector,
   currentPageSelector,
+  setCurrentPage,
   resultLengthSelector,
+  setResultLength,
   setActiveResult,
   decrementActive,
   incrementActive
@@ -12,7 +14,7 @@ import {
 import { editorSelector } from './editorSliderSlice'
 import { menuSelector } from '../menu/menuSlider/menuSliderSlice'
 import { setColor, colorDataSelector } from './color/editor/slider/channelEditorSlice'
-import { queryPagesSelector, queryResultSelector } from '../../../features/DATA/apiSlice'
+import { queryPagesSelector, queryResultSelector, setQueryResult, querySelector } from '../../../features/DATA/apiSlice'
 
 import Color from './color'
 import Editor from './color/editor'
@@ -28,6 +30,7 @@ const Composer = () => {
   const currentPage = useSelector(currentPageSelector)
   const editorOpen = useSelector(editorSelector)
   const menuToggled = useSelector(menuSelector)
+  const query = useSelector(querySelector)
   const queryPages = useSelector(queryPagesSelector)
   const queryResult = useSelector(queryResultSelector)
   const resultLength = useSelector(resultLengthSelector)
@@ -44,39 +47,65 @@ const Composer = () => {
 
   // query result navigation
   const updateColor = () => {
+    console.log(queryResult[activeResult])
     dispatch(setColor(queryResult[activeResult]))
   }
-  const swipeRight = () => {
-    if (activeResult === resultLength - 1) {
-      dispatch(setActiveResult(1))
-      updateColor()
-      // update active color
-    } else if (currentPage < queryPages && activeResult === resultLength - 10) {
-      // fetch new page
-      dispatch(incrementActive())
-      updateColor()
-      // update active color
-    } else {
-      dispatch(incrementActive())
-      updateColor()
-      // update active color
-    }
-  }
-
   const swipeLeft = () => {
     if (resultLength) {
-      if (activeResult === 0) {
-        dispatch(setActiveResult(resultLength))
+      // looping to beginning when at the end
+      if (activeResult === resultLength - 1) {
+        dispatch(setActiveResult(1))
+        updateColor()
+        // pre-fetching next page
+      } else if (currentPage < queryPages && activeResult === resultLength - 10) {
+        fetchNewPage()
+        dispatch(incrementActive())
+        updateColor()
       } else {
-        dispatch(decrementActive())
+        dispatch(incrementActive())
+        updateColor()
       }
     }
   }
 
+  const swipeRight = () => {
+    if (resultLength) {
+      if (activeResult === 0) {
+        dispatch(setActiveResult(resultLength - 1))
+        console.log('should loop backwards')
+        updateColor()
+      } else {
+        dispatch(decrementActive())
+        console.log('should decrement')
+        updateColor()
+      }
+    }
+  }
+
+  const fetchNewPage = async () => {
+    const currentResult = queryResult
+    const encodedQuery = encodeURIComponent(query).replace(/%20/g, "+")
+    const nextPage = currentPage + 1
+    if (currentPage === queryPages) {
+      dispatch(setCurrentPage(1))
+    } else {
+      dispatch(setCurrentPage(nextPage))
+    }
+    const result = await fetch(`http://localhost:7000/?query=${encodedQuery}&page={nextPage}`, {
+      mode: 'cors'
+    })
+    const data = await result.json()
+    let augmentedQueryResult = currentResult.concat(data[2])
+    // dispatch queryResult
+    dispatch(setQueryResult(augmentedQueryResult))
+    // dispatch queryLength
+    dispatch(setResultLength(augmentedQueryResult.length))
+  }
+
   const keyNav = useCallback(e => {
     if (resultLength) {
-      if (e.key === 'ArrowRight') swipeRight()
-      if (e.key === 'ArrowLeft') swipeLeft()
+      if (e.key === 'ArrowRight') swipeLeft()
+      if (e.key === 'ArrowLeft') swipeRight()
     }
   })
 
@@ -98,6 +127,8 @@ const Composer = () => {
         <Color
           key={color.id}
           id={color.id}
+          swipeLeft={swipeLeft}
+          swipeRight={swipeRight}
           className={
             editorOpen !== null && editorOpen !== false ?
               'color color-animate' :

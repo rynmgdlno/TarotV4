@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useSwipeable } from 'react-swipeable'
 
 import { colorDataSelector } from './editor/slider/channelEditorSlice'
 import { editorSelector, slideEditor } from '../editorSliderSlice'
@@ -11,7 +12,7 @@ import { luminosityTest, makeHex } from '../../../../utility-functions'
 import './color.scss'
 import './color-animate.css'
 
-const Color = ({ className, children, id, data }) => {
+const Color = ({ className, children, id, swipeLeft, swipeRight }) => {
   const dispatch = useDispatch()
   const colorData = useSelector(colorDataSelector)
   const editorOpen = useSelector(editorSelector)
@@ -21,7 +22,12 @@ const Color = ({ className, children, id, data }) => {
   const foreColor = luminosityTest(colorData[id])
   const bgColor = { backgroundColor: `rgb(${red}, ${green}, ${blue})` }
   const hex = makeHex([red, green, blue])
-  
+
+  const handlers = useSwipeable({
+    onSwipedRight: () => swipeRight(),
+    onSwipedLeft: () => swipeLeft()
+  })
+
   const toggleEditor = (id) => {
     if (editorOpen !== null && editorOpen === id) {
       dispatch(slideEditor(false))
@@ -35,7 +41,9 @@ const Color = ({ className, children, id, data }) => {
   return (
     <div
       onClick={() => toggleEditor(id)}
-      className={className} style={bgColor}>
+      className={className} style={bgColor}
+      {...handlers}
+    >
       {
         editorOpen === id &&
         <div className='indicator-container'>

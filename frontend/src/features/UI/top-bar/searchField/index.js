@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setColor } from '../../composer/color/editor/slider/channelEditorSlice'
 import {
   setIsLoading,
   setNoResults,
+  setQuery,
+  querySelector,
   setQueryResult,
   setQueryPages,
 } from '../../../DATA/apiSlice'
@@ -23,7 +25,8 @@ require('dotenv').config({
 
 const SearchField = React.forwardRef(({ setSearchField, searchToggled }, ref) => {
   const dispatch = useDispatch()
-  const [query, setQuery] = useState('')
+  const query = useSelector(querySelector)
+  // const [query, setQuery] = useState('')
 
   const onEnter = e => {
     if (e.key === 'Enter') {
@@ -65,7 +68,7 @@ const SearchField = React.forwardRef(({ setSearchField, searchToggled }, ref) =>
   }
 
   const handleChange = e => {
-    setQuery(e.target.value)
+    dispatch(setQuery(e.target.value))
   }
 
   return (

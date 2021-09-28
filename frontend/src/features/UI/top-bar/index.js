@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { } from '../../DATA/apiSlice'
 import { darkModeSelector } from '../darkMode/darkModeSlice'
 import { menuSelector, menuToggle } from '../menu/menuSlider/menuSliderSlice'
 import { palettesToggledSelector, palettesToggle } from '../modals/palettesModal/palettesSlice'
