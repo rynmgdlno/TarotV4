@@ -88,7 +88,7 @@ const Tarot = () => {
       <PalettesModal />
       <SaveModal />
       <UserModal />
-      <Overlay />
+      {/* <Overlay /> */}
     </div>
   )
 }
