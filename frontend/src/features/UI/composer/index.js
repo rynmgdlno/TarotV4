@@ -35,6 +35,9 @@ const Composer = () => {
   const queryResult = useSelector(queryResultSelector)
   const resultLength = useSelector(resultLengthSelector)
 
+  // TODO: Quite sure I can use null coalescing vs these initial class names
+  // TODO: Need to inspect
+
   const composerInitialClass = menuToggled == null ?
     'composer-animate-off' :
     'composer-animate-return'
@@ -55,16 +58,14 @@ const Composer = () => {
       // looping to beginning when at the end
       if (activeResult === resultLength - 1) {
         dispatch(setActiveResult(1))
-        updateColor()
         // pre-fetching next page
       } else if (currentPage < queryPages && activeResult === resultLength - 10) {
         fetchNewPage()
         dispatch(incrementActive())
-        updateColor()
       } else {
         dispatch(incrementActive())
-        updateColor()
       }
+      updateColor()
     }
   }
 
@@ -90,16 +91,14 @@ const Composer = () => {
       dispatch(setCurrentPage(1))
     } else {
       dispatch(setCurrentPage(nextPage))
+      const result = await fetch(`http://localhost:7000/?query=${encodedQuery}&page={nextPage}`, {
+        mode: 'cors'
+      })
+      const data = await result.json()
+      let augmentedQueryResult = currentResult.concat(data[2])
+      dispatch(setQueryResult(augmentedQueryResult))
+      dispatch(setResultLength(augmentedQueryResult.length))
     }
-    const result = await fetch(`http://localhost:7000/?query=${encodedQuery}&page={nextPage}`, {
-      mode: 'cors'
-    })
-    const data = await result.json()
-    let augmentedQueryResult = currentResult.concat(data[2])
-    // dispatch queryResult
-    dispatch(setQueryResult(augmentedQueryResult))
-    // dispatch queryLength
-    dispatch(setResultLength(augmentedQueryResult.length))
   }
 
   const keyNav = useCallback(e => {
