@@ -48,7 +48,6 @@ const Composer = () => {
 
   // query result navigation
   const updateColor = () => {
-    console.log(queryResult[activeResult])
     dispatch(setColor(queryResult[activeResult]))
   }
   const swipeLeft = () => {
