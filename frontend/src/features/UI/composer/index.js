@@ -35,9 +35,7 @@ const Composer = () => {
   const queryResult = useSelector(queryResultSelector)
   const resultLength = useSelector(resultLengthSelector)
 
-  // TODO: Quite sure I can use null coalescing vs these initial class names
-  // TODO: Need to inspect
-
+  // TODO: Unnecessary init classes, need to refactor
   const composerInitialClass = menuToggled == null ?
     'composer-animate-off' :
     'composer-animate-return'
@@ -73,11 +71,9 @@ const Composer = () => {
     if (resultLength) {
       if (activeResult === 0) {
         dispatch(setActiveResult(resultLength - 1))
-        console.log('should loop backwards')
         updateColor()
       } else {
         dispatch(decrementActive())
-        console.log('should decrement')
         updateColor()
       }
     }
