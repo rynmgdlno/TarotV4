@@ -41,7 +41,7 @@ const SearchField = React.forwardRef(({ setSearchField, searchToggled }, ref) =>
       const encodedQuery = encodeURIComponent(query).replace(/%20/g, "+")
       dispatch(setIsLoading(true))
       dispatch(setCurrentPage(1))
-      const result = await fetch(`http://localhost:7000/?query=${encodedQuery}&page=1`, {
+      const result = await fetch(`https://api.tarotcolor.com/?query=${encodedQuery}&page=1`, {
         mode: 'cors'
       })
       console.log(result)
