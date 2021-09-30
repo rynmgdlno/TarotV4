@@ -86,7 +86,7 @@ const Composer = () => {
       dispatch(setCurrentPage(1))
     } else {
       dispatch(setCurrentPage(nextPage))
-      const result = await fetch(`http://localhost:7000/?query=${encodedQuery}&page={nextPage}`, {
+      const result = await fetch(`http://localhost:7000/?query=${encodedQuery}&page=${nextPage}`, {
         mode: 'cors'
       })
       const data = await result.json()
