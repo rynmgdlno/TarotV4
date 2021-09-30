@@ -3,7 +3,7 @@
 export const lightTheme = {
   '--bg-color-main': '#FAFAFA',
   '--bg-color-form': '#FFF',
-  '--text-color-main': '#000',
+  '--text-color-main': '#212121',
   '--text-color-form': '#212121',
   '--button-text-color': '#212121',
   '--button-disabled-text-color': '#999',
@@ -23,8 +23,8 @@ export const lightTheme = {
 export const darkTheme = {
   '--bg-color-main': '#212121',
   '--bg-color-form': '#000',
-  '--text-color-main': '#FFF',
-  '--text-color-form': '#FAFAFA',
+  '--text-color-main': '#FAFAFA',
+  '--text-color-form': '#FFF',
   '--button-text-color': '#FAFAFA',
   '--button-disabled-text-color': '#777',
   '--button-border-color': '#9E9E9E',

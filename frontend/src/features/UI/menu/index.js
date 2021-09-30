@@ -67,7 +67,7 @@ const Menu = () => {
       <CustomButton className='menu-button' onClick={toggleDarkMode}>
         <ThemeIcon className='icon' fillColor={fillColor}/>
       </CustomButton>
-      <CustomButton className='menu-button'>
+      <CustomButton className='menu-button' disabled='true'>
         <HelpIcon className='icon' fillColor={fillColor}/>
       </CustomButton>
     </nav>
