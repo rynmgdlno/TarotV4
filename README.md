@@ -1,10 +1,12 @@
-### [Live Demo](tarotcolor.com)
-### This repository represents the new version that is under development. [Here](https://github.com/rynmgdlno/tarotv3) is the old version which is currently live. The implementation of Redux as well as more thoughtful React composition and project organzation meant it was much easier to re-write from the ground up.
+### [Live Demo](https://www.tarotcolor.com)
+## ~~This repository represents the new version that is under development.~~
+## This version is now live at the above link. There are still improvements to be made and features to add but time is short!
 
 # Tarot - The Lexical Color Palette Generator
 
 Generate conceptual color palettes for any project where you might want a color scheme.
 Simply enter a search term and infinite results are browsable in seconds.
+Swipe or use the arrow keys to browse generated palettes.
 Tap/Click an individual color to edit it's RGB values.
 Create an account to save palettes for later.
 
@@ -19,19 +21,19 @@ This project was built with React, Redux, vanilla CSS/SASS, and Firebase for use
 - Alternate color modes for editor (CMYK, HSL...)
 - Global Palette Editor (Saturation, warmth, luminosity...)
 - Palette Explorer Browser (view other user's palettes)
-- Switch from Flicker API to ? (if needed)
+- Switch from Flicker API to ? (as needed)
 
 This is a work in progress.  
 Current task:
-- Responsive Styles
+- Taking a break
 
 Remaining tasks:
-- Finish Palettes Browser Modal
-- Save Palette 
+- ~~Finish Palettes Browser Modal~~
+- ~~Save Palette ~~
 - Totorial Modal
-- Splash Screen
+- ~~Splash Screen~~
 - Add loader spinners where applicable
-- Rewrite API calls and search result logic for Redux. 
+- ~~Rewrite API calls and search result logic for Redux. ~~
 - *Possible* Rewrite API in FastAPI.
 - Modify backend API to no longer return hex codes (now handled solely in the client)
 - Optimize backend API.
