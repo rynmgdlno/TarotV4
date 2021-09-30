@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
-
 import { useDispatch, useSelector } from 'react-redux'
+
+import { isLoadingSelector } from '../../DATA/apiSlice'
 import { darkModeSelector } from '../darkMode/darkModeSlice'
 import { menuSelector, menuToggle } from '../menu/menuSlider/menuSliderSlice'
 import { palettesToggledSelector, palettesToggle } from '../modals/palettesModal/palettesSlice'
@@ -11,12 +12,14 @@ import { userModalSelector, userModalToggle } from '../modals/userModal/userModa
 import CustomButton from '../../../components/custom-button'
 import MenuSlider from '../menu/menuSlider'
 import Search from '../../../assets/icons/search.icon'
+import Spinner from '../../../components/SVG/spinner'
 
 import './top-bar.scss'
 import SearchField from './searchField'
 
 const TopBar = () => {
   const dispatch = useDispatch()
+  const isLoading = useSelector(isLoadingSelector)
   const darkMode = useSelector(darkModeSelector)
   const menuToggled = useSelector(menuSelector)
   const palettesToggled = useSelector(palettesToggledSelector)
@@ -38,14 +41,17 @@ const TopBar = () => {
 
   return (
     <div className='top-bar'>
-      <CustomButton
-        className={searchToggled ?
-          'search-button search-active' :
-          `search-button`}
-        type='submit'
-        onClick={showSearch}>
-        <Search className='icon search-icon' fillColor={fillColor} />
-      </CustomButton>
+      {
+        isLoading ? <Spinner className='spinner search-spinner'/> :
+          <CustomButton
+            className={searchToggled ?
+              'search-button search-active' :
+              `search-button`}
+            type='submit'
+            onClick={showSearch}>
+            <Search className='icon search-icon' fillColor={fillColor} />
+          </CustomButton>
+      }
       <SearchField
         setSearchField={setSearchField}
         searchToggled={searchToggled}

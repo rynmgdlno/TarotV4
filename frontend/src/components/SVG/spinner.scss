@@ -1,57 +1,11 @@
 .spinner {
   animation: rotate var(--spinner-time) reverse infinite ease-in-out;
+}
 
-  .a {
-    opacity: 1;
-  }
-
-  .b {
-    opacity: .923;
-  }
-
-  .c {
-    opacity: .846;
-  }
-
-  .d {
-    opacity: .769;
-  }
-
-  .e {
-    opacity: .692;
-  }
-
-  .f {
-    opacity: .615;
-  }
-
-  .g {
-    opacity: .538;
-  }
-
-  .h {
-    opacity: .461;
-  }
-
-  .i {
-    opacity: .384;
-  }
-
-  .j {
-    opacity: .307;
-  }
-
-  .k {
-    opacity: .23;
-  }
-
-  .l {
-    opacity: .153;
-  }
-
-  .m {
-    opacity: .076;
-  }
+.search-spinner {
+  width: 30px;
+  margin-left: 0.5rem;
+  fill: var(--text-color-main);
 }
 
 @keyframes rotate {

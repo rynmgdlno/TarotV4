@@ -8,7 +8,7 @@ const Spinner = ({ className }) => {
       id="prefix__Layer_1"
       data-name="Layer 1"
       viewBox="0 0 894.46 894.46"
-      className='spinner'
+      className={className}
     >
       <defs>
         {/* <style>{".prefix__cls-1{stroke:#fff;stroke-miterlimit:10}"}</style> */}

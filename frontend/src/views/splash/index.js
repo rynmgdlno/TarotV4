@@ -9,7 +9,7 @@ const Splash = () => {
       <a href="/tarot">
         <h1>Welcome</h1>
       </a>
-      <Spinner />
+      <Spinner className='spinner'/>
     </div>
   )
 }
