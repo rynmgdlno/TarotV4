@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { currentUserSelector } from '../../DATA/currentUserSlice'
 import { darkModeSelector, setDarkMode } from '../darkMode/darkModeSlice'
 import { menuSelector } from '../menu/menuSlider/menuSliderSlice'
 import { palettesToggledSelector, palettesToggle } from '../modals/palettesModal/palettesSlice'
@@ -20,6 +21,7 @@ import './menu-animate.css'
 
 const Menu = () => {
   const dispatch = useDispatch()
+  const currentUser = useSelector(currentUserSelector)
   const darkMode = useSelector(darkModeSelector)
   const menuToggled = useSelector(menuSelector)
   const palettesToggled = useSelector(palettesToggledSelector)
@@ -56,10 +58,10 @@ const Menu = () => {
       <CustomButton className='menu-button' onClick={toggleUser}>
         <UserIcon className='icon' fillColor={fillColor}/>
       </CustomButton>
-      <CustomButton className='menu-button' onClick={togglePalettes}>
+      <CustomButton className='menu-button' onClick={togglePalettes} disabled={!currentUser}>
         <OpenIcon className='icon' fillColor={fillColor}/>
       </CustomButton>
-      <CustomButton className='menu-button' onClick={toggleSaveModal}>
+      <CustomButton className='menu-button' onClick={toggleSaveModal} disabled={!currentUser}>
         <SaveIcon className='icon' fillColor={fillColor}/>
       </CustomButton>
       <CustomButton className='menu-button' onClick={toggleDarkMode}>

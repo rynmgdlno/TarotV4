@@ -5,7 +5,6 @@ export const userModalSlice = createSlice({
   initialState: {
     userToggled: null,
     user: null,
-    currentUser: null,
     thirdParty: false
   },
   reducers: {

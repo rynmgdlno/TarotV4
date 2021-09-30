@@ -9,8 +9,9 @@ button {
   margin-bottom: 1rem;
   padding: .5rem;
 
-  :hover {
-    cursor: pointer;
+  &:disabled {
+    opacity: .5;
+    cursor: default;
   }
 }
 

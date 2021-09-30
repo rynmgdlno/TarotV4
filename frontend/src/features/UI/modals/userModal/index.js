@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { auth } from '../../../../firebase/firebaseConfig'
 import { useDispatch, useSelector } from 'react-redux'
 import { currentUserSelector } from '../../../DATA/currentUserSlice'
-// import { currentUserSelector } from '../../../DATA/DATAReducer'
 import { menuToggle } from '../../menu/menuSlider/menuSliderSlice'
 import {
   userNameSelector,
