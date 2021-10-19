@@ -44,11 +44,13 @@ const Color = ({ className, children, id, swipeLeft, swipeRight }) => {
       className={className} style={bgColor}
     >
       {
-        editorOpen === id &&
+        editorOpen === id ?
         <div className='indicator-container' {...handlers}>
           <span className='hex' style={{ color: foreColor }}>{hex}</span>
           <div className='indicator' style={{ backgroundColor: foreColor }} />
         </div>
+        :
+        <div className='indicator-container' {...handlers} />
       }
       {children}
     </div>
