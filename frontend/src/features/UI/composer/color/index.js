@@ -42,11 +42,10 @@ const Color = ({ className, children, id, swipeLeft, swipeRight }) => {
     <div
       onClick={() => toggleEditor(id)}
       className={className} style={bgColor}
-      {...handlers}
     >
       {
         editorOpen === id &&
-        <div className='indicator-container'>
+        <div className='indicator-container' {...handlers}>
           <span className='hex' style={{ color: foreColor }}>{hex}</span>
           <div className='indicator' style={{ backgroundColor: foreColor }} />
         </div>
